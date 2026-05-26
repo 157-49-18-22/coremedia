@@ -1,0 +1,143 @@
+.services-section {
+  padding: 8rem 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: var(--bg-color);
+  overflow: hidden;
+}
+
+.services-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+  align-items: center;
+}
+
+.services-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.services-title {
+  font-size: 5rem;
+  font-weight: 500;
+  margin: 1.5rem 0 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.services-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 90%;
+  margin-bottom: 2.5rem;
+}
+
+.services-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.services-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.services-image-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  height: 500px;
+}
+
+.services-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease;
+}
+
+.services-image:hover {
+  filter: grayscale(0%);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.service-card {
+  background: #0d0d0d;
+  border-radius: 16px;
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: border-color 0.3s ease;
+}
+
+.service-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.service-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.service-header h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-content {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: scrollText 20s linear infinite;
+}
+
+.marquee-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+@keyframes scrollText {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 1024px) {
+  .services-top, .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .services-section {
+    padding: 6rem 2rem;
+  }
+}

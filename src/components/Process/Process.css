@@ -1,0 +1,146 @@
+.process-section {
+  padding: 6rem 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  gap: 4rem;
+  background-color: var(--bg-color);
+  position: relative;
+}
+
+.process-image-wrapper {
+  flex: 1;
+  position: sticky;
+  top: 6rem;
+  height: calc(100vh - 12rem);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.process-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(100%);
+}
+
+.process-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.process-header {
+  margin-bottom: 3rem;
+}
+
+.process-title {
+  font-size: 5rem;
+  font-weight: 500;
+  margin: 1.5rem 0 1rem;
+  letter-spacing: -0.02em;
+}
+
+.process-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 90%;
+  margin-bottom: 2rem;
+}
+
+.process-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.process-buttons .btn-outline {
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.process-buttons .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.process-buttons .btn-outline.act {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.step-card {
+  background: #0d0d0d;
+  border-radius: 16px;
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: border-color 0.3s ease;
+}
+
+.step-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.step-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.step-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--text-secondary);
+}
+
+.step-number {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.step-title {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.step-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .process-section {
+    flex-direction: column;
+    padding: 4rem 2rem;
+  }
+  .process-image-wrapper {
+    position: relative;
+    top: 0;
+    height: 400px;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  .process-title {
+    font-size: 3.5rem;
+  }
+}

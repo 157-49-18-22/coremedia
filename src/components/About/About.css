@@ -1,0 +1,149 @@
+.about-section {
+  padding: 8rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: stretch;
+  background-color: var(--bg-color);
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-title {
+  font-size: 4rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.about-description {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 90%;
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--border-color);
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill-pill {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.skill-pill:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.experience-row {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  align-items: center;
+}
+
+.exp-title {
+  color: var(--text-secondary);
+}
+
+.exp-company {
+  color: var(--text-secondary);
+}
+
+.exp-date {
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+.recent-works {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.recent-works h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.arrow-down {
+  width: 32px;
+  height: 32px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.arrow-down:hover {
+  color: var(--text-primary);
+  transform: translateY(4px);
+}
+
+.about-image-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  height: 100%;
+  min-height: 600px;
+}
+
+.about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease;
+}
+
+.about-image:hover {
+  filter: grayscale(0%);
+}
+
+@media (max-width: 900px) {
+  .about-section {
+    grid-template-columns: 1fr;
+    padding: 6rem 2rem;
+  }
+  .about-image-wrapper {
+    min-height: 400px;
+    order: -1;
+  }
+  .experience-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .exp-date {
+    text-align: left;
+  }
+}
