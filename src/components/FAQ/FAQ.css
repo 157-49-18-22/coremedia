@@ -145,3 +145,22 @@
     width: 100%;
   }
 }
+
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 4rem 1.5rem;
+  }
+  .faq-title {
+    font-size: 2.8rem;
+  }
+  .faq-image-wrapper {
+    height: 200px;
+  }
+  .call-btn {
+    width: 100%;
+    text-align: center;
+  }
+  .faq-item {
+    padding: 1.2rem 1.5rem;
+  }
+}

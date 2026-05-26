@@ -3,40 +3,16 @@ import './FAQ.css';
 
 const faqs = [
   {
-    question: 'What services do you provide?',
-    answer: 'I specialize in brand identity and package design, with experience in web design, UI/UX, and to create brand experiences.'
+    question: 'What types of brands do you work with?',
+    answer: 'We work with e-commerce brands, local businesses looking for commercial media, corporate entities needing brand assets, and digital content creators/influencers aiming to scale their production.'
   },
   {
-    question: 'How do I start working with you?',
-    answer: 'We start with a quick discovery call to discuss your goals. Following that, I provide a detailed proposal and contract before we kick off the process.'
+    question: 'Do you handle both creative production and ad management?',
+    answer: 'Yes! We can handle the entire pipeline—from shooting and editing the high-converting ad creative to managing the daily budgets and analytics on the Google and Meta ad platforms.'
   },
   {
-    question: 'What design tools do you use?',
-    answer: 'I primarily use Figma for UI/UX and web design, alongside Adobe Illustrator and Photoshop for robust branding and visual asset creation.'
-  },
-  {
-    question: 'How long does a project take?',
-    answer: 'Most standard branding packages take 2-4 weeks, depending on the complexity and how quickly we cycle through feedback rounds.'
-  },
-  {
-    question: 'Do you provide revisions?',
-    answer: 'Yes! Every project includes up to two rounds of revisions to ensure we land on the perfect visual solution for your brand.'
-  },
-  {
-    question: 'What industries do you work with?',
-    answer: 'I have worked with a diverse array of industries including tech, eco-friendly consumer goods, fashion, and boutique agencies.'
-  },
-  {
-    question: 'Do you offer development services?',
-    answer: 'While my primary focus is design, I often partner with skilled developers or use no-code tools like Webflow and Framer to bring designs to life.'
-  },
-  {
-    question: 'What is your pricing structure?',
-    answer: 'My projects are typically value-based and flat-fee, meaning you know exactly what your investment is upfront with no surprise hourly charges.'
-  },
-  {
-    question: 'Can you redesign my existing website?',
-    answer: 'Absolutely. A website redesign is a great opportunity to elevate your digital presence and optimize conversion rates.'
+    question: 'What is the typical turnaround time for editing and content delivery?',
+    answer: 'Turnaround times vary depending on project scale, but standard short-form content packages or standard post-production assets are typically delivered within a swift 3-5 business days.'
   }
 ];
 
@@ -61,7 +37,7 @@ const FAQ = () => {
 
           <h2 className="faq-title">Answers</h2>
           <p className="faq-subtitle">
-            Find answers to common questions about my design process, services etc...
+             Find answers to common questions about our design, production, and paid ads workflow...
           </p>
 
           <div className="faq-image-wrapper">
@@ -73,9 +49,9 @@ const FAQ = () => {
           </div>
 
           <div className="faq-tags">
-            <span className="skill-pill">Product Design</span>
-            <span className="skill-pill">Brand Identity Design</span>
-            <span className="skill-pill">Branding</span>
+            <span className="skill-pill">Production</span>
+            <span className="skill-pill">Ad Management</span>
+            <span className="skill-pill">Editing</span>
           </div>
 
           <button className="btn-outline-glow call-btn">Book a Free Call</button>

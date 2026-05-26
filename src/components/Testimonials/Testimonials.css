@@ -187,6 +187,9 @@
   .testimonials-top {
     grid-template-columns: 1fr;
   }
+  .testimonials-section {
+    padding: 6rem 2rem;
+  }
   .testimonials-image-wrapper {
     order: -1;
   }
@@ -196,6 +199,7 @@
   .stats-banner {
     flex-direction: column;
     gap: 2rem;
+    padding: 3rem 1.5rem;
   }
   .stat-divider {
     width: 60px;
@@ -203,8 +207,25 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 4rem 1.5rem;
+  }
+  .testimonials-title {
+    font-size: 2.8rem;
+  }
+  .testimonials-buttons {
+    flex-direction: column;
+  }
+  .testimonials-buttons .btn-outline {
+    width: 100%;
+    text-align: center;
+  }
+  .testimonials-image-wrapper {
+    height: 350px;
+  }
   .review-card {
-    flex: 0 0 100%;
+    flex: 0 0 calc(100% - 1.5rem);
+    padding: 2rem;
   }
 }

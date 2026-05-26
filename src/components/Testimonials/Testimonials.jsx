@@ -4,23 +4,23 @@ import './Testimonials.css';
 const reviews = [
   {
     id: 1,
-    name: 'June Lee',
-    role: 'CEO of GreenRoots',
-    text: '"Meily\'s strategic approach to design brought our brand vision to life. The packaging and brand elements she developed elevated our aesthetic and aligned perfectly with our sustainability values."',
+    name: 'Sarah Jenkins',
+    role: 'CMO, Elevate E-Commerce',
+    text: '"ClickCoreMedia completely transformed our social channels. The video content quality is incredible, and our audience engagement has skyrocketed since they took over editing and production."',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop'
   },
   {
     id: 2,
-    name: 'Jona Carter',
-    role: 'Founder of EcoLux',
-    text: '"Every project Meily touches turns into a perfect blend of design and purpose. She crafted packaging that reflected our eco-friendly mission while making our products stand out on the shelves."',
+    name: 'Marcus Chen',
+    role: 'Founder, TechFit',
+    text: '"Our ROAS (Return on Ad Spend) practically doubled within the first month of letting them run our Meta and Google ads. They know exactly how to pair high-quality creatives with sharp targeting."',
     avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop'
   },
   {
     id: 3,
     name: 'Sofia Toms',
-    role: 'Founder at GreenK Studios',
-    text: '"Meily\'s designs speak for themselves — bold, strategic, and impactful. She took the time to understand our brand, delivering packaging concepts that resonated with our target audience and boosted our product\'s visibility."',
+    role: 'Digital Creator',
+    text: '"Working with ClickCoreMedia for my personal brand has been life-changing. Their high-retention video editing completely blew up my YouTube Analytics and freed me to focus on creating."',
     avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop'
   }
 ];

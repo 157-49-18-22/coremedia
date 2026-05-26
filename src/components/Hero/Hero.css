@@ -188,6 +188,23 @@
 
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 3rem;
+    font-size: 2.8rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    padding: 0 2rem;
+  }
+  .btn-primary, .btn-secondary {
+    width: 100%;
+  }
+  .hero-scroll {
+    bottom: 1rem;
+    padding: 0 1rem;
   }
 }

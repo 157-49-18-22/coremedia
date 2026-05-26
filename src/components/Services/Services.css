@@ -140,4 +140,29 @@
   .services-section {
     padding: 6rem 2rem;
   }
+  .service-card {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-section {
+    padding: 4rem 1.5rem;
+  }
+  .services-title {
+    font-size: 2.8rem;
+  }
+  .services-buttons {
+    flex-direction: column;
+  }
+  .services-buttons .btn-outline {
+    width: 100%;
+    text-align: center;
+  }
+  .services-image-wrapper {
+    height: 350px;
+  }
+  .service-card {
+    padding: 1.5rem;
+  }
 }

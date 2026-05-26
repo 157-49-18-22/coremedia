@@ -5,21 +5,20 @@ const About = () => {
   return (
     <section id="about" className="about-section">
       <div className="about-content">
-        <h2 className="about-title">Meet Meily</h2>
+        <h2 className="about-title">Meet ClickCoreMedia</h2>
         <p className="about-description">
-          I'm Meily, a passionate Brand Identity & Package Designer based in tokyo. I specialize in crafting bold visual identities and packaging that captivate and inspire, blending creativity with strategy to elevate brands.
+          We are a full-service creative and growth agency dedicated to brands and creators who want to stand out. From high-end commercial photography to high-retention video editing and high-converting Meta and Google ad campaigns, we bridge the gap between stunning creative work and measurable business results.
         </p>
 
         <div className="divider"></div>
 
         <div className="skills-container">
-          <span className="skill-pill">Product Design</span>
+          <span className="skill-pill">Content Creation</span>
+          <span className="skill-pill">Commercial Photography</span>
+          <span className="skill-pill">High-Retention Editing</span>
           <span className="skill-pill">Brand Identity Design</span>
-          <span className="skill-pill">UX Design</span>
-          <span className="skill-pill">Branding</span>
-          <span className="skill-pill">Packaging Design</span>
-          <span className="skill-pill">Figma</span>
-          <span className="skill-pill">Photoshop</span>
+          <span className="skill-pill">Meta & Google Ads</span>
+          <span className="skill-pill">Influencer Growth</span>
         </div>
 
         <div className="divider"></div>
@@ -57,7 +56,7 @@ const About = () => {
       <div className="about-image-wrapper">
         <img 
           src="https://images.unsplash.com/photo-1542451313056-b7c8e626645f?q=80&w=800&auto=format&fit=crop" 
-          alt="Meet Meily" 
+          alt="Meet ClickCoreMedia" 
           className="about-image" 
         />
       </div>

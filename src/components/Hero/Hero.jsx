@@ -19,20 +19,20 @@ const Hero = () => {
       <div className="hero-content">
         <div className="badge">
           <span className="dot"></span>
-          Crafting Unique Brand Identities
+          Crafting High-Impact Digital Content
         </div>
         
         <h1 className="hero-title">
-          Branding that you<br />need Indeed
+          Crafting High-Impact Digital Content <br />That Scales Brands.
         </h1>
         
         <p className="hero-subtitle">
-          Elevate your brand with custom identity and package design. Showcase your story through bold visuals and strategic design solutions.
+          Elevate your digital presence with strategic content creation, premium production, and targeted ad campaigns. We turn casual viewers into loyal customers through bold visuals and data-driven growth.
         </p>
         
         <div className="hero-buttons">
-          <button className="btn-primary">Get Started Now</button>
-          <button className="btn-secondary">See Projects</button>
+          <button className="btn-primary">See Our Work</button>
+          <button className="btn-secondary">Book a Discovery Call</button>
         </div>
       </div>
 

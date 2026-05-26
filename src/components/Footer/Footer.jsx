@@ -17,11 +17,11 @@ const Footer = () => {
       
       <div className="footer-content">
         <h2 className="footer-title">
-          Curious about what we can create together? Let’s bring something extraordinary to life!
+          Ready to scale your brand's digital media? Let's create high-converting content and launch campaigns that put your business on the map.
         </h2>
         
         <button className="footer-cta-btn">
-          Let's Talk
+          Book a Free Media Audit
         </button>
         
         <div className="footer-socials">
@@ -43,9 +43,8 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        <span className="footer-email">hello@framebase.design</span>
-        <span className="footer-credit">Design in Framer</span>
-        <span className="footer-copyright">All rights reserved, ©2025</span>
+        <span className="footer-email">hello@clickcoremedia.com</span>
+        <span className="footer-copyright">© 2026 ClickCoreMedia. All rights reserved.</span>
       </div>
     </footer>
   );

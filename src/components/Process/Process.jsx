@@ -20,12 +20,12 @@ const Process = () => {
               <circle cx="12" cy="12" r="6"></circle>
               <circle cx="12" cy="12" r="2"></circle>
             </svg>
-            Design process
+            The Core Process
           </div>
           
-          <h2 className="process-title">Process</h2>
+          <h2 className="process-title">The Core Process</h2>
           <p className="process-subtitle">
-            crafting bold visuals that inspire and elevate brands with thought process.
+            Our seamless workflow designed to take your media from concept to high-performing asset.
           </p>
           
           <div className="process-buttons">
@@ -45,9 +45,9 @@ const Process = () => {
               </div>
               <span className="step-number">1</span>
             </div>
-            <h3 className="step-title">Define Your Vision</h3>
+            <h3 className="step-title">Define & Strategize</h3>
             <p className="step-desc">
-              Find the perfect plan tailored to your needs, offering the right balance of features, flexibility, and value to help you achieve your goals effortlessly.
+              We deep dive into your brand goals, target audience, and current digital presence to build a customized content or advertising blueprint.
             </p>
           </div>
 
@@ -61,9 +61,9 @@ const Process = () => {
               </div>
               <span className="step-number">2</span>
             </div>
-            <h3 className="step-title">Submit Your Request</h3>
+            <h3 className="step-title">Produce & Perfect</h3>
             <p className="step-desc">
-              Easily submit your design requirements through our private design portal, ensuring a seamless process where your vision is understood, refined, and brought to life with precision and creativity.
+              From the camera lens to the editing timeline, our team produces, cuts, and refines high-fidelity visuals optimized for maximum audience retention.
             </p>
           </div>
 
@@ -80,9 +80,9 @@ const Process = () => {
               </div>
               <span className="step-number">3</span>
             </div>
-            <h3 className="step-title">Project Delivered</h3>
+            <h3 className="step-title">Launch & Optimize</h3>
             <p className="step-desc">
-              As a dedicated freelancer, I ensure your project is completed with precision and delivered within 2-3 days. With a keen eye for detail and a passion for quality, I bring your vision to life—on time and beyond expectations.
+              We push the media live or launch your targeted ad campaigns on Meta and Google, constantly tracking analytics to tweak and optimize for the highest conversion rates.
             </p>
           </div>
         </div>
