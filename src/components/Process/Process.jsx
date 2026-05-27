@@ -1,5 +1,6 @@
 import React from 'react';
 import './Process.css';
+import FlipButton from '../FlipButton/FlipButton';
 
 const Process = () => {
   return (
@@ -29,8 +30,8 @@ const Process = () => {
           </p>
           
           <div className="process-buttons">
-            <button className="btn-outline">Book a Free Call</button>
-            <button className="btn-outline act">See Projects</button>
+            <FlipButton variant="ghost">Book a Free Call</FlipButton>
+            <FlipButton variant="ghost">See Projects</FlipButton>
           </div>
         </div>
 

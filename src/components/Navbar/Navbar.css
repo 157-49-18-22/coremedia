@@ -3,12 +3,22 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 4rem;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
   background: transparent;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.3s ease, box-shadow 0.4s ease;
+}
+
+/* Scrolled state — glassmorphism */
+.navbar.scrolled {
+  background: rgba(5, 5, 5, 0.75);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+  padding: 1rem 4rem;
 }
 
 .navbar-logo {
@@ -20,23 +30,11 @@
   cursor: pointer;
 }
 
-.logo-icon {
-  width: 20px;
-  height: 20px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 2px;
+.logo-img {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
 }
-
-.logo-icon span {
-  background-color: var(--text-primary);
-  border-radius: 2px;
-}
-.logo-icon span:nth-child(1) { border-radius: 4px 2px 2px 2px; }
-.logo-icon span:nth-child(2) { border-radius: 2px 4px 2px 2px; opacity: 0.7;}
-.logo-icon span:nth-child(3) { border-radius: 2px 2px 2px 4px; opacity: 0.7; }
-.logo-icon span:nth-child(4) { border-radius: 2px 2px 4px 2px; }
 
 
 .navbar-links {

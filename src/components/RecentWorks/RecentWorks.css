@@ -1,88 +1,162 @@
-.recent-works-container {
-  padding: 2rem 2rem 6rem;
-  background-color: var(--bg-color);
-  width: 100%;
-  overflow: hidden;
-}
-
-.recent-works-grid {
-  display: flex;
-  gap: 1.5rem;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  position: relative;
-  overflow-x: auto;
-  padding-bottom: 2rem;
-  scrollbar-width: none; /* Firefox */
-}
-
-.recent-works-grid::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
-}
-
-.recent-work-card {
-  flex: 0 0 calc(25% - 1.125rem); /* Show exactly 4 items in a row */
-  aspect-ratio: 1 / 1;
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.recent-work-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: grayscale(100%);
-  transition: filter 0.4s ease, transform 0.4s ease;
-}
-
-.recent-work-card:hover .recent-work-image {
-  filter: grayscale(0%);
-  transform: scale(1.02);
-}
-
-.carousel-nav-right {
-  position: absolute;
-  right: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
+/* ─── Section Layout ──────────────────────────────────────── */
+.rw-section {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 4rem;
+  padding: 5rem 6rem;
+  background-color: var(--bg-color);
+  overflow: hidden;
+}
+
+/* ─── Left Panel ──────────────────────────────────────────── */
+.rw-left {
+  flex: 0 0 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.rw-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.rw-title {
+  font-size: 3.8rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text-primary, #fff);
+  margin: 0;
+}
+
+.rw-desc {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.7;
+  max-width: 340px;
+  margin: 0;
+}
+
+.rw-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
   color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
   cursor: pointer;
-  z-index: 10;
   transition: all 0.3s ease;
+  width: fit-content;
 }
 
-.carousel-nav-right:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: translateY(-50%) scale(1.05);
+.rw-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-2px);
 }
 
-@media (max-width: 1200px) {
-  .recent-work-card {
-    flex: 0 0 calc(33.333% - 1rem); /* 3 items */
+/* Dots */
+.rw-counter {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.rw-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.rw-dot.active {
+  background: #fff;
+  transform: scale(1.3);
+}
+
+/* ─── Right Panel ─────────────────────────────────────────── */
+.rw-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 620px;
+  position: relative;
+  padding-right: 2rem;
+}
+
+.rw-cardswap-wrapper {
+  position: relative;
+  width: 520px;
+  height: 420px;
+  /* extra room for the stacked offset cards */
+  margin-right: 180px;
+  margin-bottom: 180px;
+}
+
+/* ─── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .rw-section {
+    padding: 6rem 3rem;
+    gap: 3rem;
+  }
+  .rw-left {
+    flex: 0 0 320px;
+  }
+  .rw-title {
+    font-size: 3rem;
   }
 }
 
-@media (max-width: 900px) {
-  .recent-work-card {
-    flex: 0 0 calc(50% - 0.75rem); /* 2 items */
+@media (max-width: 860px) {
+  .rw-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem 1.5rem;
+    text-align: center;
+  }
+  .rw-left {
+    flex: unset;
+    align-items: center;
+    width: 100%;
+  }
+  .rw-right {
+    min-height: unset;
+    justify-content: center;
+    padding-right: 0;
+    width: 100%;
+    margin-top: 2rem;
+  }
+  .rw-desc {
+    max-width: 480px;
+  }
+  .rw-counter {
+    justify-content: center;
+  }
+  .rw-cardswap-wrapper {
+    margin: 0 auto;
+    margin-bottom: 40px;
   }
 }
 
-@media (max-width: 600px) {
-  .recent-work-card {
-    flex: 0 0 100%; /* 1 item */
+@media (max-width: 520px) {
+  .rw-title {
+    font-size: 2.4rem;
+  }
+  .rw-cardswap-wrapper {
+    transform: scale(0.65);
+    transform-origin: center top;
+    margin: 0 auto 20px auto;
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import './Footer.css';
 import LiquidChrome from './LiquidChrome';
+import FlipButton from '../FlipButton/FlipButton';
 
 const Footer = () => {
   return (
@@ -20,9 +21,7 @@ const Footer = () => {
           Ready to scale your brand's digital media? Let's create high-converting content and launch campaigns that put your business on the map.
         </h2>
         
-        <button className="footer-cta-btn">
-          Book a Free Media Audit
-        </button>
+        <FlipButton variant="cta">Book a Free Media Audit</FlipButton>
         
         <div className="footer-socials">
           <a href="#behance" className="social-link">Bē</a>

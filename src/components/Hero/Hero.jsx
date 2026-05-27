@@ -1,5 +1,6 @@
 import React from 'react';
 import './Hero.css';
+import FlipButton from '../FlipButton/FlipButton';
 import bgImage from '../../assets/smoky_abstract_background.png';
 import LiquidChrome from '../Footer/LiquidChrome';
 
@@ -31,8 +32,8 @@ const Hero = () => {
         </p>
         
         <div className="hero-buttons">
-          <button className="btn-primary">See Our Work</button>
-          <button className="btn-secondary">Book a Discovery Call</button>
+          <FlipButton variant="primary">See Our Work</FlipButton>
+          <FlipButton variant="secondary">Book a Discovery Call</FlipButton>
         </div>
       </div>
 

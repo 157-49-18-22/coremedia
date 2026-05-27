@@ -1,8 +1,11 @@
 .testimonials-section {
-  padding: 8rem 4rem;
+  padding: 5rem 4rem;
   max-width: 1400px;
   margin: 0 auto;
   background-color: var(--bg-color);
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 100%;
 }
 
 .testimonials-top {
@@ -10,13 +13,13 @@
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   margin-bottom: 4rem;
-  align-items: center;
+  align-items: stretch;
 }
 
 .testimonials-image-wrapper {
   border-radius: 12px;
   overflow: hidden;
-  height: 500px;
+  height: 100%;
 }
 
 .testimonials-image {
@@ -68,20 +71,32 @@
   border-color: rgba(255, 255, 255, 0.4);
 }
 
-.testimonials-carousel {
-  display: flex;
-  gap: 1.5rem;
-  overflow-x: auto;
+.testimonials-carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
   padding-bottom: 2rem;
-  scrollbar-width: none;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
-.testimonials-carousel::-webkit-scrollbar {
-  display: none;
+.testimonials-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: scrollTestimonials 25s linear infinite;
+}
+
+.testimonials-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollTestimonials {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 0.75rem)); }
 }
 
 .review-card {
-  flex: 0 0 calc(33.333% - 1rem);
+  width: 400px; /* fixed width for cards inside track */
   background: #0d0d0d;
   border-radius: 16px;
   padding: 2.5rem;
@@ -194,7 +209,7 @@
     order: -1;
   }
   .review-card {
-    flex: 0 0 calc(50% - 0.75rem);
+    width: 350px;
   }
   .stats-banner {
     flex-direction: column;
@@ -209,23 +224,49 @@
 
 @media (max-width: 768px) {
   .testimonials-section {
-    padding: 4rem 1.5rem;
+    padding: 3rem 1rem;
+  }
+  .testimonials-top {
+    gap: 2rem;
+  }
+  .testimonials-content {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  .testimonials-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+    width: 100%;
   }
   .testimonials-title {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
+    line-height: 1.2;
   }
   .testimonials-buttons {
     flex-direction: column;
+    width: 100%;
+    align-items: center;
   }
   .testimonials-buttons .btn-outline {
     width: 100%;
     text-align: center;
   }
   .testimonials-image-wrapper {
-    height: 350px;
+    height: 250px;
+    width: 100%;
   }
   .review-card {
-    flex: 0 0 calc(100% - 1.5rem);
-    padding: 2rem;
+    width: 85vw;
+    max-width: 320px;
+    padding: 1.5rem;
+  }
+  .stats-banner {
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+  }
+  .stat-number {
+    font-size: 2rem;
   }
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './FAQ.css';
+import FlipButton from '../FlipButton/FlipButton';
 
 const faqs = [
   {
@@ -13,6 +14,22 @@ const faqs = [
   {
     question: 'What is the typical turnaround time for editing and content delivery?',
     answer: 'Turnaround times vary depending on project scale, but standard short-form content packages or standard post-production assets are typically delivered within a swift 3-5 business days.'
+  },
+  {
+    question: 'How do I start working with you?',
+    answer: 'The first step is booking a free discovery call. We will discuss your current brand position, content needs, and goals. From there, we propose a tailored strategy and production timeline.'
+  },
+  {
+    question: 'What platforms do you specialize in for paid ads?',
+    answer: 'We heavily specialize in Meta (Facebook/Instagram) and Google Ads, as they consistently provide the highest scalable ROAS for e-commerce and commercial clients when paired with great creatives.'
+  },
+  {
+    question: 'Do you offer revisions on edited videos?',
+    answer: 'Absolutely. We include standard revision rounds in all our post-production and editing packages to ensure the final product perfectly aligns with your brand’s voice and aesthetic.'
+  },
+  {
+    question: 'Can you work with footage we already shot?',
+    answer: 'Yes! Our high-retention video editing services are built to take your raw footage, podcasts, or streams and transform them into viral-ready, polished assets for social media.'
   }
 ];
 
@@ -54,7 +71,7 @@ const FAQ = () => {
             <span className="skill-pill">Editing</span>
           </div>
 
-          <button className="btn-outline-glow call-btn">Book a Free Call</button>
+          <FlipButton variant="ghost">Book a Free Call</FlipButton>
         </div>
       </div>
 

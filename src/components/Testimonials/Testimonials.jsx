@@ -1,5 +1,6 @@
 import React from 'react';
 import './Testimonials.css';
+import FlipButton from '../FlipButton/FlipButton';
 
 const reviews = [
   {
@@ -51,15 +52,16 @@ const Testimonials = () => {
           </p>
 
           <div className="testimonials-buttons">
-            <button className="btn-outline">Book a Free Call</button>
-            <button className="btn-outline">See Services</button>
+            <FlipButton variant="ghost">Book a Free Call</FlipButton>
+            <FlipButton variant="ghost">See Services</FlipButton>
           </div>
         </div>
       </div>
 
-      <div className="testimonials-carousel">
-        {reviews.map((review) => (
-          <div key={review.id} className="review-card">
+      <div className="testimonials-carousel-wrapper">
+        <div className="testimonials-track">
+          {[...reviews, ...reviews].map((review, index) => (
+            <div key={`${review.id}-${index}`} className="review-card">
             <div className="review-avatar">
               <img src={review.avatar} alt={review.name} />
             </div>
@@ -83,6 +85,7 @@ const Testimonials = () => {
             </div>
           </div>
         ))}
+        </div>
       </div>
 
       <div className="stats-banner">

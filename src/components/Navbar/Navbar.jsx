@@ -1,20 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navbar.css';
+import FlipButton from '../FlipButton/FlipButton';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="navbar-logo">
-        <div className="logo-icon">
-          <span></span><span></span><span></span><span></span>
-        </div>
-        <span>ClickCoreMedia</span>
+        <img src="/ClickCore BW.png" alt="ClickCoreMedia Logo" className="logo-img" />
       </div>
 
       <div className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`} onClick={toggleMobileMenu}>
@@ -30,16 +37,12 @@ const Navbar = () => {
         <li><a href="#admanagement" onClick={() => setIsMobileMenuOpen(false)}>Ad Management</a></li>
         <li><a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</a></li>
         <li className="mobile-only-btn">
-          <button className="btn-outline">
-            Get a Free Proposal
-          </button>
+          <FlipButton variant="outline">Get a Free Proposal</FlipButton>
         </li>
       </ul>
 
       <div className="navbar-action desktop-only-btn">
-        <button className="btn-outline">
-          Get a Free Proposal
-        </button>
+        <FlipButton variant="outline">Get a Free Proposal</FlipButton>
       </div>
     </nav>
   );

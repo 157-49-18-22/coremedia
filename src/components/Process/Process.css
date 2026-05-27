@@ -1,20 +1,20 @@
 .process-section {
-  padding: 6rem 4rem;
+  padding: 5rem 4rem;
   max-width: 1400px;
   margin: 0 auto;
   display: flex;
   gap: 4rem;
   background-color: var(--bg-color);
   position: relative;
+  align-items: stretch;
 }
 
 .process-image-wrapper {
   flex: 1;
-  position: sticky;
-  top: 6rem;
-  height: calc(100vh - 12rem);
-  border-radius: 12px;
+  position: relative;
   overflow: hidden;
+  border-radius: 16px;
+  height: auto;
 }
 
 .process-image {
@@ -29,6 +29,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .process-header {
@@ -131,16 +132,18 @@
 @media (max-width: 1024px) {
   .process-section {
     flex-direction: column;
-    padding: 6rem 2rem;
-    gap: 3rem;
+    padding: 0;
+    gap: 0;
   }
   .process-image-wrapper {
     position: relative;
     top: 0;
-    height: 400px;
+    height: 50vh;
+    flex: none;
     width: 100%;
-    margin-bottom: 1rem;
-    order: -1;
+  }
+  .process-content {
+    padding: 4rem 2rem;
   }
   .process-title {
     font-size: 3.5rem;

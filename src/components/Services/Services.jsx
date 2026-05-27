@@ -1,5 +1,6 @@
 import React from 'react';
 import './Services.css';
+import FlipButton from '../FlipButton/FlipButton';
 
 const Services = () => {
   return (
@@ -30,8 +31,8 @@ const Services = () => {
           <div className="divider" style={{ margin: '2.5rem 0' }}></div>
 
           <div className="services-buttons">
-            <button className="btn-outline">Book a Free Call</button>
-            <button className="btn-outline">See Projects</button>
+            <FlipButton variant="ghost">Book a Free Call</FlipButton>
+            <FlipButton variant="ghost">See Projects</FlipButton>
           </div>
         </div>
 
@@ -85,7 +86,7 @@ const Services = () => {
           <p>Building unique, cohesive brand identities from scratch. From visual assets and logos to custom media kits and aesthetic design languages, we ensure your brand leaves a lasting impression across all platforms.</p>
         </div>
 
-        <div className="service-card" style={{ gridColumn: '1 / -1' }}>
+        <div className="service-card">
           <div className="service-header">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>

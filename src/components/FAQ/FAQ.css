@@ -1,11 +1,13 @@
 .faq-section {
-  padding: 8rem 4rem;
+  padding: 5rem 4rem;
   max-width: 1400px;
   margin: 0 auto;
   display: flex;
   gap: 4rem;
   background-color: var(--bg-color);
   position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .faq-left {
@@ -38,9 +40,9 @@
 .faq-image-wrapper {
   border-radius: 12px;
   overflow: hidden;
-  height: 300px;
+  height: 450px;
   margin-bottom: 2rem;
-  width: 90%;
+  width: 100%;
 }
 
 .faq-image {
@@ -143,24 +145,49 @@
   }
   .faq-image-wrapper {
     width: 100%;
+    height: 400px;
+    flex: none;
   }
 }
 
 @media (max-width: 768px) {
   .faq-section {
-    padding: 4rem 1.5rem;
+    padding: 3rem 1rem;
+    width: 100%;
   }
   .faq-title {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .faq-subtitle {
+     text-align: center;
+     margin-left: auto;
+     margin-right: auto;
   }
   .faq-image-wrapper {
-    height: 200px;
+    height: 250px;
+    flex: none;
+    width: 100%;
   }
   .call-btn {
     width: 100%;
     text-align: center;
   }
   .faq-item {
-    padding: 1.2rem 1.5rem;
+    padding: 1.2rem 1.2rem;
+  }
+  .faq-tags {
+    justify-content: center;
+  }
+  .faq-sticky-content .badge {
+    margin: 0 auto;
+  }
+  .faq-sticky-content {
+    align-items: center;
+  }
+  .faq-sticky-content .btn-outline {
+    width: 100%;
+    text-align: center;
   }
 }

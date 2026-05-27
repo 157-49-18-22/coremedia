@@ -34,7 +34,7 @@
   z-index: 10;
   text-align: center;
   max-width: 800px;
-  padding: 0 2rem;
+  padding: 0 2rem 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,6 +44,7 @@
 .badge {
   display: inline-flex;
   align-items: center;
+  width: max-content;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   border: 1px solid var(--border-color);
@@ -132,9 +133,10 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  z-index: 10;
-  opacity: 0.7;
+  z-index: 2;
+  opacity: 0.5;
   padding: 0 4rem;
+  pointer-events: none;
 }
 
 .scroll-text {
@@ -172,37 +174,63 @@
 }
 
 @keyframes scrollWheel {
-  0% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(12px); opacity: 0; }
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(12px);
+    opacity: 0;
+  }
 }
 
 @keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2.8rem;
   }
+
   .hero-subtitle {
     font-size: 1rem;
     padding: 0 1rem;
   }
+
   .hero-buttons {
     flex-direction: column;
     width: 100%;
     gap: 1rem;
     padding: 0 2rem;
   }
-  .btn-primary, .btn-secondary {
+
+  .btn-primary,
+  .btn-secondary {
     width: 100%;
   }
+
   .hero-scroll {
     bottom: 1rem;
     padding: 0 1rem;

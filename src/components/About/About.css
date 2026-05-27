@@ -1,5 +1,5 @@
 .about-section {
-  padding: 8rem 4rem;
+  padding: 5rem 4rem;
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
@@ -114,7 +114,6 @@
   border-radius: 12px;
   overflow: hidden;
   height: 100%;
-  min-height: 600px;
 }
 
 .about-image {
