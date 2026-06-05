@@ -32,7 +32,7 @@ const Hero = () => {
         </p>
         
         <div className="hero-buttons">
-          <FlipButton variant="primary">See Our Work</FlipButton>
+          <FlipButton variant="secondary">See Our Work</FlipButton>
           <FlipButton variant="secondary">Book a Discovery Call</FlipButton>
         </div>
       </div>

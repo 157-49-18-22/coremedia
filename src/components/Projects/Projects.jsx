@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Projects.css';
 import FlipButton from '../FlipButton/FlipButton';
 
@@ -13,6 +13,28 @@ const projects = [
 ];
 
 const Projects = () => {
+  const cardsRef = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('project-card--visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    cardsRef.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="projects" className="projects-section">
       <div className="projects-header">
@@ -23,8 +45,13 @@ const Projects = () => {
       </div>
       
       <div className="projects-grid">
-        {projects.map((p) => (
-          <div key={p.id} className="project-card">
+        {projects.map((p, i) => (
+          <div 
+            key={p.id} 
+            className="project-card"
+            ref={(el) => (cardsRef.current[i] = el)}
+            style={{ transitionDelay: `${i * 0.12}s` }}
+          >
             <img src={p.img} alt={`Case Study ${p.id}`} className="project-image" />
             <div className="project-gradient"></div>
             <div className="project-content-wrapper">

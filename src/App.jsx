@@ -16,9 +16,10 @@ function App() {
     <div className="app-container">
       <Navbar />
       <Hero />
-      <About />
-      <RecentWorks />
       <Projects />
+      <RecentWorks />
+
+      <About />
       <Process />
       <Services />
       <Testimonials />

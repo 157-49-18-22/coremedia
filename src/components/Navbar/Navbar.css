@@ -8,7 +8,7 @@
   left: 0;
   width: 100%;
   z-index: 100;
-  background: black;
+  background: transparent;
   transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.3s ease, box-shadow 0.4s ease;
 }
 
@@ -58,18 +58,21 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.6rem 1.2rem;
-  border: 1px solid var(--border-color);
-  border-radius: 50px;
-  color: var(--text-primary);
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
+  border: 1.5px solid #ffffff;
+  border-radius: 5px;
+  color: #ffffff;
+  background: transparent;
+  font-size: 0.9rem;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
 }
 
 .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-1px);
+  border-color: transparent;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow:
+    0 0 16px rgba(255, 255, 255, 0.5),
+    0 0 36px rgba(255, 255, 255, 0.2),
+    inset 0 0 16px rgba(255, 255, 255, 0.05);
 }
 
 .hamburger {

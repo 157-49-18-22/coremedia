@@ -1,140 +1,122 @@
-/* ─── FlipButton ─────────────────────────────────────────── */
+/* ─── CleanButton (Portfolite style) ─────────────────────── */
 .flip-btn {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
   cursor: pointer;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  border: none;
   outline: none;
-  background: none;
   text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
 }
 
-/* ── Variant: Primary (white bg, dark text) ── */
+.flip-label {
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+/* ── Variant: Primary (solid white bg, dark text) ── */
 .flip-btn.flip-primary {
   height: 48px;
-  padding: 0 1.8rem;
-  border-radius: 50px;
-  background-color: var(--text-primary, #fff);
-  color: var(--bg-color, #050505);
-  font-size: 1rem;
-  border: 1px solid transparent;
+  padding: 0 1.6rem;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: #0a0a0a;
+  font-size: 0.95rem;
+  border: 1.5px solid #ffffff;
 }
 
-/* ── Variant: Secondary (transparent, white border) ── */
+.flip-btn.flip-primary:hover {
+  border-color: transparent;
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  box-shadow:
+    0 0 18px rgba(255, 255, 255, 0.55),
+    0 0 40px rgba(255, 255, 255, 0.25),
+    inset 0 0 20px rgba(255, 255, 255, 0.06);
+}
+
+/* ── Variant: Secondary (black bg, white border) ── */
 .flip-btn.flip-secondary {
   height: 48px;
-  padding: 0 1.8rem;
-  border-radius: 50px;
-  background-color: transparent;
-  color: var(--text-primary, #fff);
-  font-size: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
+  padding: 0 1.6rem;
+  border-radius: 5px;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  font-size: 0.95rem;
+  border: 1.5px solid #ffffff;
+}
+
+.flip-btn.flip-secondary:hover {
+  border-color: transparent;
+  background-color: rgba(255, 255, 255, 0.04);
+  box-shadow:
+    0 0 18px rgba(255, 255, 255, 0.55),
+    0 0 40px rgba(255, 255, 255, 0.25),
+    inset 0 0 20px rgba(255, 255, 255, 0.06);
 }
 
 /* ── Variant: Outline (navbar style) ── */
 .flip-btn.flip-outline {
   height: 40px;
   padding: 0 1.4rem;
-  border-radius: 50px;
+  border-radius: 5px;
   background-color: transparent;
-  color: var(--text-primary, #fff);
+  color: #ffffff;
   font-size: 0.9rem;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1.5px solid #ffffff;
+}
+
+.flip-btn.flip-outline:hover {
+  border-color: transparent;
+  background-color: rgba(255, 255, 255, 0.03);
+  box-shadow:
+    0 0 16px rgba(255, 255, 255, 0.5),
+    0 0 36px rgba(255, 255, 255, 0.2),
+    inset 0 0 16px rgba(255, 255, 255, 0.05);
 }
 
 /* ── Variant: CTA (footer big button) ── */
 .flip-btn.flip-cta {
   height: 56px;
   padding: 0 2.4rem;
-  border-radius: 50px;
-  background-color: #fff;
-  color: #050505;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: #0a0a0a;
   font-size: 1.05rem;
-  border: 1px solid transparent;
+  border: 1.5px solid #ffffff;
 }
 
-/* ── Variant: Ghost (outline glow, projects/recentworks) ── */
+.flip-btn.flip-cta:hover {
+  border-color: transparent;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  box-shadow:
+    0 0 22px rgba(255, 255, 255, 0.6),
+    0 0 50px rgba(255, 255, 255, 0.28),
+    inset 0 0 24px rgba(255, 255, 255, 0.07);
+}
+
+/* ── Variant: Ghost (projects / recent works) ── */
 .flip-btn.flip-ghost {
   height: 44px;
   padding: 0 1.6rem;
-  border-radius: 50px;
-  background-color: transparent;
-  color: var(--text-primary, #fff);
+  border-radius: 5px;
+  background-color: #0a0a0a;
+  color: #ffffff;
   font-size: 0.95rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.04);
+  border: 1.5px solid #ffffff;
 }
 
-/* ─── FRONT layer (default visible text) ─────────────────── */
-.flip-front {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.52s cubic-bezier(0.23, 1, 0.32, 1);
-  transform: translateY(0%);
-  white-space: nowrap;
-}
-
-.flip-btn:hover .flip-front {
-  transform: translateY(-160%);
-}
-
-/* ─── BACK layer (hover state) ──────────────────────────── */
-.flip-back {
-  position: absolute;
-  inset: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transform: translateY(100%);
-  transition: transform 0.52s cubic-bezier(0.23, 1, 0.32, 1);
-  color: #fff;
-  z-index: 2;
-  white-space: nowrap;
-}
-
-.flip-btn:hover .flip-back {
-  transform: translateY(0%);
-}
-
-/* ─── Sliding background fill ────────────────────────────── */
-.flip-bg {
-  position: absolute;
-  inset: 0;
-  background: #2a3580;
-  transform: translateY(100%) skewY(10deg) scaleY(0);
-  transition: transform 0.52s cubic-bezier(0.23, 1, 0.32, 1);
-  z-index: 1;
-  border-radius: inherit;
-}
-
-.flip-btn:hover .flip-bg {
-  transform: translateY(0%) skewY(0deg) scaleY(1.6);
-}
-
-/* Primary variant fill is darker */
-.flip-btn.flip-primary .flip-bg {
-  background: #1a2060;
-}
-.flip-btn.flip-primary:hover .flip-front {
-  color: #fff;
-}
-
-/* CTA fill */
-.flip-btn.flip-cta .flip-bg {
-  background: #1a2060;
-}
-
-/* text on top of fill */
-.flip-back-text {
-  position: relative;
-  z-index: 3;
+.flip-btn.flip-ghost:hover {
+  border-color: transparent;
+  background-color: rgba(255, 255, 255, 0.03);
+  box-shadow:
+    0 0 18px rgba(255, 255, 255, 0.55),
+    0 0 40px rgba(255, 255, 255, 0.22),
+    inset 0 0 20px rgba(255, 255, 255, 0.06);
 }

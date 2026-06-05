@@ -2,7 +2,7 @@ import React from 'react';
 import './FlipButton.css';
 
 /**
- * FlipButton — hover animation where text slides up and a colored fill sweeps in.
+ * CleanButton — simple bordered button, hover glows the border.
  *
  * Props:
  *  variant  — 'primary' | 'secondary' | 'outline' | 'cta' | 'ghost'  (default: 'primary')
@@ -19,14 +19,7 @@ const FlipButton = ({ variant = 'primary', children, onClick, className = '', st
       style={style}
       {...rest}
     >
-      {/* Default (front) text */}
-      <span className="flip-front">{children}</span>
-
-      {/* Hover state */}
-      <span className="flip-back">
-        <span className="flip-bg" />
-        <span className="flip-back-text">{children}</span>
-      </span>
+      <span className="flip-label">{children}</span>
     </button>
   );
 };
