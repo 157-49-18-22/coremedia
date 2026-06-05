@@ -1,5 +1,6 @@
 .projects-section {
-  padding: 5rem 2rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
   background-color: var(--bg-color);
   display: flex;
   flex-direction: column;
@@ -7,29 +8,46 @@
 }
 
 .projects-grid {
-  column-count: 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   column-gap: 1.5rem;
+  row-gap: 1.5rem;
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
+  padding: 4rem 0 0 0;
   margin: 0 auto 4rem auto;
+  align-items: start;
 }
 
 .project-card {
-  break-inside: avoid;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   position: relative;
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
   display: flex;
+  width: 100%;
 }
 
-.project-card.small {
-  height: 340px;
-}
+/* Portfolite EXACT Masonry Layout using Grid Maths */
+.project-card:nth-child(1) { height: 450px; }
+.project-card:nth-child(2) { height: 650px; margin-top: -4rem; }
+.project-card:nth-child(3) { height: 450px; }
 
-.project-card.tall {
-  height: 520px;
+/* 
+  Card 2 margin-top creates a row height of 586px. 
+  Card 1, 3 sit at 450px.
+  Row 2 starts at 586px + 24px (gap) = 610px.
+  Card 4, 6 need to start at 450px + 24px (gap) = 474px.
+  Difference is 610 - 474 = 136px = 8.5rem.
+*/
+.project-card:nth-child(4) { height: 450px; margin-top: -8.5rem; }
+.project-card:nth-child(5) { height: 450px; margin-top: 0; }
+.project-card:nth-child(6) { height: 450px; margin-top: -8.5rem; }
+
+/* Ensure hover respects layout */
+.project-card:hover .project-image {
+  transform: scale(1.02);
 }
 
 .project-image {
@@ -83,7 +101,7 @@
 }
 
 .card-overlay {
-  height: 48px;
+  height: 56px;
   background: var(--glass-bg);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -94,6 +112,7 @@
   opacity: 0.8;
   transition: opacity 0.3s ease, background 0.3s ease;
   pointer-events: auto;
+  width: 100%;
 }
 
 .project-card:hover .card-overlay {
@@ -174,7 +193,12 @@
 
 @media (max-width: 900px) {
   .projects-grid {
-    column-count: 2;
+    grid-template-columns: repeat(2, 1fr);
+    padding-top: 0;
+  }
+  .project-card:nth-child(n) {
+    margin-top: 0;
+    height: 400px;
   }
 }
 
@@ -189,15 +213,12 @@
     padding: 4rem 1.5rem;
   }
   .projects-grid {
-    column-count: 1;
-    column-gap: 0;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   .project-card {
-    margin: 0 auto 1.5rem auto;
+    margin: 0 auto 0 auto;
     width: 100%;
-  }
-  .project-card.tall, .project-card.small {
-    height: 400px;
   }
   .projects-footer {
     flex-direction: column;

@@ -7,6 +7,9 @@
   --accent-color: #ffffff;
   --border-color: rgba(255, 255, 255, 0.1);
   --glass-bg: rgba(255, 255, 255, 0.05);
+
+  /* ── Global section horizontal padding ── */
+  --section-px: 4rem;
 }
 
 * {
@@ -41,4 +44,37 @@ button {
   background: none;
   cursor: pointer;
   font-family: 'Inter', sans-serif;
+}
+
+/* ── Global: every section fills full width with same horizontal padding ── */
+.hero,
+.about-section,
+.rw-section,
+.projects-section,
+.services-section,
+.process-section,
+.faq-section,
+.testimonials-section,
+.footer-section {
+  width: 100%;
+  max-width: 100% !important;
+  box-sizing: border-box;
+  padding-left: var(--section-px) !important;
+  padding-right: var(--section-px) !important;
+}
+
+/* Exceptions: sections that use a child grid/container (not the section itself) */
+.projects-grid,
+.projects-section > .projects-header,
+.projects-section > .projects-footer {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+@media (max-width: 1024px) {
+  :root { --section-px: 2.5rem; }
+}
+
+@media (max-width: 600px) {
+  :root { --section-px: 1.25rem; }
 }

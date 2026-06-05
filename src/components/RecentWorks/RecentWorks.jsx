@@ -1,7 +1,5 @@
 import React from 'react';
 import './RecentWorks.css';
-import CardSwap, { Card } from './CardSwap';
-import FlipButton from '../FlipButton/FlipButton';
 
 const recentWorks = [
   {
@@ -32,50 +30,24 @@ const recentWorks = [
 
 const RecentWorks = () => {
   return (
-    <section className="rw-section">
-      {/* Left: Text */}
-      <div className="rw-left">
-        <span className="rw-label">Featured Work</span>
-        <h2 className="rw-title">Recent Works</h2>
-        <p className="rw-desc">
-          A glimpse into the content systems and growth campaigns we've executed
-          for brands and creators worldwide.
-        </p>
-        <FlipButton variant="ghost">View All Projects ↗</FlipButton>
-
-        {/* Card count indicator */}
-        <div className="rw-counter">
-          {recentWorks.map((_, i) => (
-            <span key={i} className={`rw-dot ${i === 0 ? 'active' : ''}`} />
-          ))}
-        </div>
+    <section className="rw-section" id="recent-works">
+      <div className="rw-header">
+        <h2 className="rw-title">
+          Recent Works 
+          <span className="rw-header-icon">↓</span>
+        </h2>
       </div>
 
-      {/* Right: CardSwap */}
-      <div className="rw-right">
-        <div className="rw-cardswap-wrapper">
-          <CardSwap
-            width={520}
-            height={420}
-            cardDistance={60}
-            verticalDistance={60}
-            delay={3500}
-            pauseOnHover={true}
-            skewAmount={4}
-            easing="elastic"
-          >
-            {recentWorks.map((work) => (
-              <Card key={work.id}>
-                <img src={work.img} alt={work.title} />
-                <div className="card-content-overlay">
-                  <h3>{work.title}</h3>
-                  <p>{work.category}</p>
-                  <span className="casestudy-btn">View Casestudy ↗</span>
-                </div>
-              </Card>
-            ))}
-          </CardSwap>
-        </div>
+      <div className="rw-slider">
+        {recentWorks.map((work) => (
+          <div className="rw-card" key={work.id}>
+            <img src={work.img} alt={work.title} />
+            <div className="rw-card-gradient"></div>
+            <div className="rw-card-overlay">
+              <span className="casestudy-btn">View Casestudy ↗</span>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

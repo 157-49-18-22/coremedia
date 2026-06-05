@@ -1,20 +1,22 @@
 import React from 'react';
 import './Footer.css';
-import LiquidChrome from './LiquidChrome';
+import Silk from '../Silk/Silk';
 import FlipButton from '../FlipButton/FlipButton';
 
 const Footer = () => {
   return (
     <footer className="footer-section">
       <div className="footer-liquid-bg">
-        <LiquidChrome
-          baseColor={[0.1, 0.1, 0.1]}
-          speed={0.3}
-          amplitude={0.3}
-          interactive
+        <Silk
+          speed={5}
+          scale={1}
+          color="#1A1A1A"
+          noiseIntensity={1.5}
+          rotation={0}
         />
       </div>
       <div className="footer-overlay"></div>
+
       
       <div className="footer-content">
         <h2 className="footer-title">

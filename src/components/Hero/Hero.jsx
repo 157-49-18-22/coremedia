@@ -1,18 +1,18 @@
 import React from 'react';
 import './Hero.css';
 import FlipButton from '../FlipButton/FlipButton';
-import bgImage from '../../assets/smoky_abstract_background.png';
-import LiquidChrome from '../Footer/LiquidChrome';
+import Silk from '../Silk/Silk';
 
 const Hero = () => {
   return (
     <section className="hero">
       <div className="hero-liquid-bg">
-        <LiquidChrome
-          baseColor={[0.1, 0.1, 0.1]}
-          speed={0.3}
-          amplitude={0.3}
-          interactive
+        <Silk
+          speed={5}
+          scale={1}
+          color="#1A1A1A"
+          noiseIntensity={1.5}
+          rotation={0}
         />
       </div>
       <div className="hero-overlay"></div>
