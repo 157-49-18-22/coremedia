@@ -1,109 +1,211 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import './Services.css';
-import FlipButton from '../FlipButton/FlipButton';
+
+const services = [
+  {
+    num: '01',
+    title: 'Content Production',
+    desc: 'Multi-channel asset creation — from photography to immersive video — designed for high-impact social and web presence.',
+    tag: 'Photography · Video · Reels',
+  },
+  {
+    num: '02',
+    title: 'Brand Identity',
+    desc: 'Conceptualizing visual systems that transcend trends. We build brand architectures that scale with innovation.',
+    tag: 'Logo · Visual System · Strategy',
+  },
+  {
+    num: '03',
+    title: 'Paid Ad Strategy',
+    desc: 'Data-informed roadmaps that align creative output with business growth, ensuring every pixel serves a purpose.',
+    tag: 'Meta · Google · ROI',
+  },
+  {
+    num: '04',
+    title: 'Motion Design',
+    desc: 'High-end 2D and 3D animation that brings static brands to life with fluid, cinematic motion and emotional resonance.',
+    tag: 'Animation · After Effects · Reel',
+  },
+];
+
+const stats = [
+  { value: '150+', label: 'Projects Delivered' },
+  { value: '5+', label: 'Years of Expertise' },
+  { value: '98%', label: 'Client Satisfaction' },
+  { value: '3x', label: 'Avg. ROAS Growth' },
+];
+
+const tools = [
+  'AFTER EFFECTS', 'CINEMA 4D', 'PREMIERE PRO', 'FIGMA',
+  'META ADS', 'GOOGLE ADS', 'PHOTOSHOP', 'DAVINCI RESOLVE',
+  'AFTER EFFECTS', 'CINEMA 4D', 'PREMIERE PRO', 'FIGMA',
+  'META ADS', 'GOOGLE ADS', 'PHOTOSHOP', 'DAVINCI RESOLVE',
+];
 
 const Services = () => {
+  const revealRefs = useRef([]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('srv-visible');
+        });
+      },
+      { threshold: 0.06, rootMargin: '0px 0px -40px 0px' }
+    );
+    revealRefs.current.forEach((el) => { if (el) observer.observe(el); });
+    return () => observer.disconnect();
+  }, []);
+
+  const addRef = (el) => {
+    if (el && !revealRefs.current.includes(el)) revealRefs.current.push(el);
+  };
+
   return (
     <section id="services-component" className="services-section">
-      <div className="services-top">
-        <div className="services-content">
-          <div className="badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <circle cx="12" cy="12" r="3"></circle>
-            </svg>
-            Our Services
-          </div>
-          
-          <h2 className="services-title">Our Services</h2>
-          <p className="services-subtitle">
-            Helping businesses and influencers dominate social feeds and scale revenue effectively.
-          </p>
 
-          <div className="services-pills">
-            <span className="skill-pill">Content Creation & Production</span>
-            <span className="skill-pill">Commercial Videography</span>
-            <span className="skill-pill">High-Retention Editing</span>
-            <span className="skill-pill">Meta & Google Paid Ads</span>
-            <span className="skill-pill">Brand Strategy</span>
-          </div>
-
-          <div className="divider" style={{ margin: '2.5rem 0' }}></div>
-
-          <div className="services-buttons">
-            <FlipButton variant="ghost">Book a Free Call</FlipButton>
-            <FlipButton variant="ghost">See Projects</FlipButton>
-          </div>
+      {/* ── Hero ── */}
+      <div className="srv-hero-wrapper">
+        <div className="srv-hero-anim-bg">
+          <div className="srv-moving-grid"></div>
+          <div className="srv-ambient-glow"></div>
         </div>
-
-        <div className="services-image-wrapper">
-          <img 
-            src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop" 
-            alt="Design Services" 
-            className="services-image" 
-          />
+        <div className="srv-hero srv-reveal" ref={addRef}>
+          <div className="srv-hero-left">
+            <span className="srv-hero-badge">OUR SERVICES</span>
+            <h1 className="srv-hero-title">
+              <span className="srv-kinetic">CORE</span>
+              <br />
+              <span className="srv-kinetic srv-outline">CAPABILITIES</span>
+            </h1>
+          </div>
+          <div className="srv-hero-right">
+            <p className="srv-hero-desc">
+              Defining the next generation of digital experiences through
+              high-fidelity motion and strategic design thinking.
+            </p>
+            <Link to="/contact" className="srv-hero-cta">
+              Book a Free Call <span className="srv-cta-arrow">→</span>
+            </Link>
+          </div>
         </div>
       </div>
 
-      <div className="services-grid">
-        <div className="service-card">
-          <div className="service-header">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-            </svg>
-            <h3>Commercial Photography & Videography</h3>
-          </div>
-          <p>High-end visual assets for products, commercial spaces, and campaigns. Whether it's sharp studio product shots or cinematic brand videos, we deliver high-quality production value that commands attention.</p>
-        </div>
+      {/* Hero Image */}
+      <div className="srv-hero-img-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&auto=format&fit=crop"
+          alt="Core Capabilities"
+          className="srv-hero-img"
+        />
+        <div className="srv-hero-img-fade" />
+      </div>
 
-        <div className="service-card">
-          <div className="service-header">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline>
-            </svg>
-            <h3>Post-Production & Video Editing</h3>
+      {/* ── Stats Bar ── */}
+      <div className="srv-stats-bar srv-reveal" ref={addRef}>
+        {stats.map((s) => (
+          <div className="srv-stat" key={s.label}>
+            <span className="srv-stat-value">{s.value}</span>
+            <span className="srv-stat-label">{s.label}</span>
           </div>
-          <p>Professional, fast-paced editing utilizing seamless transitions, precise sound design, color grading, and custom motion graphics. Turn raw footage into polished, high-retention media that drives views and shares.</p>
-        </div>
+        ))}
+      </div>
 
-        <div className="service-card">
-          <div className="service-header">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line>
-            </svg>
-            <h3>Brand Identity & Strategy</h3>
+      {/* ── 4-Column Service Cards ── */}
+      <div className="srv-grid">
+        {services.map((s, i) => (
+          <div
+            className="srv-card srv-reveal"
+            key={s.num}
+            ref={addRef}
+            style={{ transitionDelay: `${i * 0.1}s` }}
+          >
+            <div className="srv-card-top">
+              <span className="srv-card-num">{s.num}</span>
+              <h3 className="srv-card-title">{s.title}</h3>
+            </div>
+            <p className="srv-card-desc">{s.desc}</p>
+            <span className="srv-card-tag">{s.tag}</span>
           </div>
-          <p>Building unique, cohesive brand identities from scratch. From visual assets and logos to custom media kits and aesthetic design languages, we ensure your brand leaves a lasting impression across all platforms.</p>
-        </div>
+        ))}
+      </div>
 
-        <div className="service-card">
-          <div className="service-header">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-            </svg>
-            <h3>Meta & Google Paid Ads</h3>
+      {/* ── Our Process ── */}
+      <div className="srv-process-wrap">
+        <div className="srv-process-inner">
+          <div className="srv-process-left srv-reveal" ref={addRef}>
+            <h2 className="srv-process-heading">Our Process</h2>
+            <p className="srv-process-sub">
+              Three phases. Zero compromise.
+            </p>
           </div>
-          <p>Stop wasting budget on unoptimized ads. We manage and scale targeted ad campaigns on Facebook, Instagram, and Google, focusing on creative testing, audience analytics, and maximizing your ROI/ROAS.</p>
+          <div className="srv-process-right">
+            {[
+              {
+                phase: 'PHASE 01',
+                title: 'Discovery & Audit',
+                desc: "We deep-dive into your brand's ecosystem, auditing competitors and identifying the unique friction points where design can make the most significant impact.",
+              },
+              {
+                phase: 'PHASE 02',
+                title: 'Visual Prototyping',
+                desc: "Rapid iteration of core concepts. We create style frames and motion tests to define the visual language before moving into full production.",
+              },
+              {
+                phase: 'PHASE 03',
+                title: 'Execution & Refinement',
+                desc: 'High-fidelity craftsmanship. Every element is polished to perfection, ensuring seamless interaction and technical excellence.',
+              },
+            ].map((p, i) => (
+              <div
+                className="srv-phase srv-reveal"
+                key={p.phase}
+                ref={addRef}
+                style={{ transitionDelay: `${i * 0.15}s` }}
+              >
+                <span className="srv-phase-label">{p.phase}</span>
+                <h4 className="srv-phase-title">{p.title}</h4>
+                <p className="srv-phase-desc">{p.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className="marquee-container">
-        <div className="marquee-content">
-          <span className="marquee-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg> Content Creation</span>
-          <span className="marquee-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg> High-Retention Editing</span>
-          <span className="marquee-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 3v18"></path><path d="M3 15h18"></path></svg> Paid Traffic</span>
-          <span className="marquee-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect></svg> Commercial Videography</span>
-          <span className="marquee-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle></svg> Product Photography</span>
-          <span className="marquee-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg> Brand Strategy</span>
-          <span className="marquee-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle></svg> Meta Ads Specialist</span>
-          <span className="marquee-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg> Google PPC</span>
-          <span className="marquee-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle></svg> Creator Growth</span>
-          
-          {/* Duplicated for infinite scroll */}
-          <span className="marquee-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg> Content Creation</span>
-          <span className="marquee-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg> High-Retention Editing</span>
+      {/* ── Tool Marquee ── */}
+      <div className="srv-tools-wrap">
+        <p className="srv-tools-label">Industrial Standard Tools</p>
+        <div className="srv-marquee-outer">
+          <div className="srv-marquee-track">
+            {tools.map((tool, i) => (
+              <span className="srv-tool-item" key={i}>{tool}</span>
+            ))}
+          </div>
         </div>
       </div>
+
+      {/* ── CTA ── */}
+      <div className="srv-cta-wrap srv-reveal" ref={addRef}>
+        <img
+          src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1600&auto=format&fit=crop"
+          alt="CTA background"
+          className="srv-cta-bg"
+        />
+        <div className="srv-cta-overlay" />
+        <div className="srv-cta-content">
+          <p className="srv-cta-eyebrow">READY TO START?</p>
+          <h2 className="srv-cta-title">
+            LET'S PUSH<br />BOUNDARIES
+          </h2>
+          <Link to="/contact" className="srv-cta-btn">
+            START A PROJECT →
+          </Link>
+        </div>
+      </div>
+
     </section>
   );
 };
