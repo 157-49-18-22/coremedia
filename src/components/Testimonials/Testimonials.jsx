@@ -46,14 +46,17 @@ const Testimonials = () => {
             Reviews
           </div>
           
-          <h2 className="testimonials-title">Client Reviews</h2>
-          <p className="testimonials-subtitle">
-            Real feedback from clients who trusted my design expertise to elevate their brands successfully.
-          </p>
+          <h2 className="testimonials-title">Client <br />Reviews</h2>
+          
+          <div className="testimonials-bottom-group">
+            <div className="testimonials-buttons">
+              <FlipButton variant="ghost">Book a Free Call</FlipButton>
+              <FlipButton variant="ghost">See Services</FlipButton>
+            </div>
 
-          <div className="testimonials-buttons">
-            <FlipButton variant="ghost">Book a Free Call</FlipButton>
-            <FlipButton variant="ghost">See Services</FlipButton>
+            <p className="testimonials-subtitle">
+              Real feedback from clients who trusted my design expertise to elevate their brands successfully.
+            </p>
           </div>
         </div>
       </div>

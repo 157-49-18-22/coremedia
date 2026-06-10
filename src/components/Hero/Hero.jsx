@@ -1,30 +1,25 @@
 import React from 'react';
 import './Hero.css';
 import FlipButton from '../FlipButton/FlipButton';
-import Silk from '../Silk/Silk';
 
 const Hero = () => {
   return (
     <section className="hero">
       <div className="hero-liquid-bg">
-        <Silk
-          speed={5}
-          scale={1}
-          color="#1A1A1A"
-          noiseIntensity={1.5}
-          rotation={0}
-        />
+        <video autoPlay loop muted playsInline className="desktop-video">
+          <source src="/ccm BG 2_1 (1).mp4" type="video/mp4" />
+        </video>
       </div>
       <div className="hero-overlay"></div>
       
       <div className="hero-content">
         <div className="badge">
           <span className="dot"></span>
-          Crafting High-Impact Digital Content
+          Elite Digital Media Agency
         </div>
         
         <h1 className="hero-title">
-          Crafting High-Impact Digital Content <br />That Scales Brands.
+          Bold Content. <br />Limitless Growth.
         </h1>
         
         <p className="hero-subtitle">
