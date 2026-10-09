@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './FAQ.css';
 import FlipButton from '../FlipButton/FlipButton';
 
@@ -54,14 +55,14 @@ const FAQ = () => {
 
           <h2 className="faq-title">Answers</h2>
           <p className="faq-subtitle">
-             Find answers to common questions about our design, production, and paid ads workflow...
+            Find answers to common questions about our design, production, and paid ads workflow...
           </p>
 
           <div className="faq-image-wrapper">
-            <img 
-              src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?q=80&w=800&auto=format&fit=crop" 
-              alt="FAQ illustration" 
-              className="faq-image" 
+            <img
+              src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?q=80&w=800&auto=format&fit=crop"
+              alt="FAQ illustration"
+              className="faq-image"
             />
           </div>
 
@@ -69,9 +70,12 @@ const FAQ = () => {
             <span className="skill-pill">Production</span>
             <span className="skill-pill">Ad Management</span>
             <span className="skill-pill">Editing</span>
+            <span className="skill-pill">Content Scripting</span>
           </div>
 
-          <FlipButton variant="ghost">Book a Free Call</FlipButton>
+          <Link to="/contact">
+            <FlipButton variant="ghost">Book a Free Call</FlipButton>
+          </Link>
         </div>
       </div>
 
@@ -80,8 +84,8 @@ const FAQ = () => {
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`faq-item ${isOpen ? 'open' : ''}`}
                 onClick={() => toggleFAQ(index)}
               >
@@ -101,7 +105,7 @@ const FAQ = () => {
                     )}
                   </div>
                 </div>
-                
+
                 {isOpen && (
                   <div className="faq-answer">
                     <p>{faq.answer}</p>

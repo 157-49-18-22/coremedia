@@ -89,7 +89,8 @@
   display: flex;
   gap: 1.5rem;
   width: max-content;
-  animation: scrollTestimonials 25s linear infinite;
+  animation: scrollTestimonials 35s linear infinite;
+  will-change: transform;
 }
 
 .testimonials-track:hover {

@@ -5,38 +5,59 @@ import './Portfolio.css';
 const projects = [
   {
     id: 1,
-    client: 'Cinetica Films',
-    category: 'Commercial Production',
-    image: 'https://images.unsplash.com/photo-1542451313056-b7c8e626645f?q=80&w=1200&auto=format&fit=crop',
-    size: 'large', // hero/wide card
+    client: 'The Weekend Rush',
+    category: 'Restaurant Campaign 🍽️',
+    image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop',
+    size: 'large',
   },
   {
     id: 2,
-    client: 'Monolith Audio',
-    category: 'Brand Identity',
-    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop',
+    client: 'Transformation Challenge',
+    category: 'Gym / Fitness Brand 💪',
+    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop',
     size: 'medium',
   },
   {
     id: 3,
-    client: 'Vortex Dynamics',
-    category: 'Motion Design',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop',
+    client: 'Luxury Property Showcase',
+    category: 'Real Estate 🏠',
+    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop',
     size: 'tall',
   },
   {
     id: 4,
-    client: 'Onyx Apparel',
-    category: 'E-com Paid Traffic',
-    image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=800&auto=format&fit=crop',
+    client: 'New Collection Launch',
+    category: 'Fashion Brand 👕',
+    image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800&auto=format&fit=crop',
     size: 'medium',
   },
   {
     id: 5,
-    client: 'Lumina Tech',
-    category: 'Full Stack Campaign',
-    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop',
-    size: 'large', // wide at the bottom
+    client: 'Launch Week Content',
+    category: 'Coffee Shop / Café ☕',
+    image: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=1200&auto=format&fit=crop',
+    size: 'large',
+  },
+  {
+    id: 6,
+    client: '30 Days of Content',
+    category: 'Personal Brand / Creator 🎥',
+    image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=800&auto=format&fit=crop',
+    size: 'medium',
+  },
+  {
+    id: 7,
+    client: 'Performance Meets Luxury',
+    category: 'Automobile 🚗',
+    image: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=800&auto=format&fit=crop',
+    size: 'tall',
+  },
+  {
+    id: 8,
+    client: 'Premium Product Launch',
+    category: 'Product Commercial 📱',
+    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200&auto=format&fit=crop',
+    size: 'large',
   }
 ];
 
@@ -143,26 +164,7 @@ const Portfolio = () => {
         </div>
       </div>
 
-      {/* ── Impact/Stats Section ── */}
-      <section className="pf-impact-section pf-reveal" ref={addRef}>
-        <div className="pf-impact-inner">
-          <h2 className="pf-impact-heading">We Measure <br/><span className="text-stroke-dark">Success in Scale</span></h2>
-          <div className="pf-impact-stats">
-            <div className="pf-stat-box">
-              <span className="pf-stat-num">$10M+</span>
-              <span className="pf-stat-text">Client Revenue Generated</span>
-            </div>
-            <div className="pf-stat-box">
-              <span className="pf-stat-num">500M</span>
-              <span className="pf-stat-text">Organic Views Driven</span>
-            </div>
-            <div className="pf-stat-box">
-              <span className="pf-stat-num">40+</span>
-              <span className="pf-stat-text">Global Brands Scaled</span>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* ── Next-Level CTA ── */}
       <section className="pf-cta-premium pf-reveal" ref={addRef}>

@@ -55,7 +55,16 @@ button {
 .process-section,
 .faq-section,
 .testimonials-section,
-.footer-section {
+.footer-section,
+.pf-hero,
+.pf-projects-section,
+.pf-ticker-container,
+.pf-cta-premium,
+.ct-hero,
+.ct-split-section,
+.ct-reach-section,
+.ct-faq-section,
+.ct-location-section {
   width: 100%;
   max-width: 100% !important;
   box-sizing: border-box;
@@ -66,7 +75,10 @@ button {
 /* Exceptions: sections that use a child grid/container (not the section itself) */
 .projects-grid,
 .projects-section > .projects-header,
-.projects-section > .projects-footer {
+.projects-section > .projects-footer,
+.pf-projects-grid,
+.pf-hero-inner,
+.pf-cta-premium-inner {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }

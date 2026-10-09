@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Testimonials.css';
 import FlipButton from '../FlipButton/FlipButton';
 
@@ -13,28 +14,52 @@ const reviews = [
   {
     id: 2,
     name: 'Marcus Chen',
-    role: 'Founder, TechFit',
-    text: '"Our ROAS (Return on Ad Spend) practically doubled within the first month of letting them run our Meta and Google ads. They know exactly how to pair high-quality creatives with sharp targeting."',
+    role: 'Founder, TechFit Gyms',
+    text: '"Our ROAS practically doubled within the first month of letting them run our Meta and Google ads. They know exactly how to pair high-quality creatives with sharp targeting."',
     avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop'
   },
   {
     id: 3,
     name: 'Sofia Toms',
-    role: 'Digital Creator',
+    role: 'Digital Content Creator',
     text: '"Working with ClickCoreMedia for my personal brand has been life-changing. Their high-retention video editing completely blew up my YouTube Analytics and freed me to focus on creating."',
     avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop'
+  },
+  {
+    id: 4,
+    name: 'Liam Vance',
+    role: 'Director, Luxe Realty Group',
+    text: '"Their architectural videography and drone walkthroughs helped us close multimillion-dollar listings in under two weeks. The production value is world-class."',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop'
+  },
+  {
+    id: 5,
+    name: 'Elena Rostova',
+    role: 'Head of Brand, Aurelia Apparel',
+    text: '"The fashion collection launch drove over 4M organic views. Their aesthetic visual direction and snappy lifestyle edits elevated our brand identity overnight."',
+    avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200&auto=format&fit=crop'
+  },
+  {
+    id: 6,
+    name: 'David Miller',
+    role: 'Founder, Roast & Co. Café',
+    text: '"Our launch week reels went viral locally and brought continuous queues out the door. Best decision we made was partnering with ClickCoreMedia for media production."',
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop'
   }
 ];
 
 const Testimonials = () => {
+  // Repeating array twice for a seamless infinite marquee
+  const loopList = [...reviews, ...reviews];
+
   return (
     <section id="testimonials" className="testimonials-section">
       <div className="testimonials-top">
         <div className="testimonials-image-wrapper">
-          <img 
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop" 
-            alt="Client Team" 
-            className="testimonials-image" 
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop"
+            alt="Client Team"
+            className="testimonials-image"
           />
         </div>
 
@@ -45,17 +70,21 @@ const Testimonials = () => {
             </svg>
             Reviews
           </div>
-          
+
           <h2 className="testimonials-title">Client <br />Reviews</h2>
-          
+
           <div className="testimonials-bottom-group">
             <div className="testimonials-buttons">
-              <FlipButton variant="ghost">Book a Free Call</FlipButton>
-              <FlipButton variant="ghost">See Services</FlipButton>
+              <Link to="/contact">
+                <FlipButton variant="ghost">Book a Free Call</FlipButton>
+              </Link>
+              <Link to="/services">
+                <FlipButton variant="ghost">See Services</FlipButton>
+              </Link>
             </div>
 
             <p className="testimonials-subtitle">
-              Real feedback from clients who trusted my design expertise to elevate their brands successfully.
+              Real feedback from clients who trusted our production & growth expertise to scale their brand.
             </p>
           </div>
         </div>
@@ -63,37 +92,37 @@ const Testimonials = () => {
 
       <div className="testimonials-carousel-wrapper">
         <div className="testimonials-track">
-          {[...reviews, ...reviews].map((review, index) => (
+          {loopList.map((review, index) => (
             <div key={`${review.id}-${index}`} className="review-card">
-            <div className="review-avatar">
-              <img src={review.avatar} alt={review.name} />
-            </div>
-            
-            <h3 className="review-name">{review.name}</h3>
-            <span className="review-role">{review.role}</span>
-            
-            <div className="review-divider"></div>
-            
-            <p className="review-text">{review.text}</p>
-            
-            <div className="review-rating">
-              <span className="rating-number">5.0</span>
-              <div className="stars">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill="#FFC107" stroke="#FFC107" strokeWidth="1">
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                  </svg>
-                ))}
+              <div className="review-avatar">
+                <img src={review.avatar} alt={review.name} />
+              </div>
+
+              <h3 className="review-name">{review.name}</h3>
+              <span className="review-role">{review.role}</span>
+
+              <div className="review-divider"></div>
+
+              <p className="review-text">{review.text}</p>
+
+              <div className="review-rating">
+                <span className="rating-number">5.0</span>
+                <div className="stars">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill="#FFC107" stroke="#FFC107" strokeWidth="1">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
         </div>
       </div>
 
       <div className="stats-banner">
         <div className="stat-item">
-          <h3 className="stat-number">180+</h3>
+          <h3 className="stat-number">50+</h3>
           <p className="stat-desc">design projects completed.</p>
         </div>
         <div className="stat-divider"></div>
@@ -103,7 +132,7 @@ const Testimonials = () => {
         </div>
         <div className="stat-divider"></div>
         <div className="stat-item">
-          <h3 className="stat-number">15+</h3>
+          <h3 className="stat-number">3+</h3>
           <p className="stat-desc">Years of experience</p>
         </div>
       </div>

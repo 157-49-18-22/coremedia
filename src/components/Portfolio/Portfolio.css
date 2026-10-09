@@ -355,7 +355,7 @@
 .pf-ticker-track {
   display: flex;
   white-space: nowrap;
-  animation: ticker-slide 20s linear infinite;
+  animation: ticker-slide 4s linear infinite;
 }
 
 .pf-ticker-item {
@@ -502,7 +502,7 @@
 .pf-premium-btn {
   margin-top: 2rem;
   background: #ffffff;
-  color: #131313;
+  color: #131313 !important;
   padding: 1.25rem 3rem;
   border-radius: 50px;
   font-size: 0.9rem;
@@ -510,14 +510,19 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 1rem;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.pf-premium-btn .btn-text {
+  color: #131313 !important;
+}
+
 .pf-premium-btn .btn-icon {
   font-size: 1.2rem;
+  color: #131313 !important;
   transition: transform 0.4s ease;
 }
 

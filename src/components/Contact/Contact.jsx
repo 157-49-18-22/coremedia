@@ -20,9 +20,9 @@ const faqs = [
 ];
 
 const offices = [
-  { num: '01', city: 'DELHI', place: 'Faridabad Studio', phone: '+91 98765 43210' },
-  { num: '02', city: 'MUMBAI', place: 'Bandra Creative Lab', phone: '+91 91234 56789' },
-  { num: '03', city: 'BLR', place: 'Koramangala Hub', phone: '+91 80123 45678' },
+  { num: '01', city: 'NAGPUR', place: 'Nagpur Creative Studio', phone: '+91 93071 89778' },
+  { num: '02', city: 'CANADA', place: 'Toronto Production Hub', phone: '+1 647 000 0000' },
+  { num: '03', city: 'FARIDABAD', place: 'Faridabad Base Studio', phone: '+91 93071 89778' },
 ];
 
 const Contact = () => {
@@ -47,6 +47,24 @@ const Contact = () => {
     if (el && !revealRefs.current.includes(el)) revealRefs.current.push(el);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const name = e.target.elements['name']?.value?.trim() || '';
+    const email = e.target.elements['email']?.value?.trim() || '';
+    const service = e.target.elements['service']?.value?.trim() || '';
+    const message = e.target.elements['message']?.value?.trim() || '';
+    const subject = encodeURIComponent(`Inquiry from ${name} — ${service}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nInterested In: ${service}\n\nMessage:\n${message}`
+    );
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isMobile) {
+      window.location.href = `mailto:hello@clickcoremedia.com?subject=${subject}&body=${body}`;
+    } else {
+      window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=hello@clickcoremedia.com&su=${subject}&body=${body}`, '_blank');
+    }
+  };
+
   return (
     <main className="ct-main">
 
@@ -57,7 +75,7 @@ const Contact = () => {
           <div className="ct-glow-orb orb-1"></div>
           <div className="ct-glow-orb orb-2"></div>
         </div>
-        
+
         <div className="ct-hero-content">
           <h1 className="ct-hero-title ct-reveal" ref={addRef}>
             Let's Build <br />
@@ -91,23 +109,23 @@ const Contact = () => {
         <div className="ct-split-right">
           <div className="ct-form-inner">
             <h2 className="ct-form-heading">Inquiry</h2>
-            <form className="ct-form" onSubmit={(e) => e.preventDefault()}>
+            <form className="ct-form" onSubmit={handleSubmit}>
               <div className="ct-form-row">
                 <div className="ct-field">
                   <label className="ct-label">Full Name</label>
-                  <input className="ct-input" type="text" placeholder="John Doe" />
+                  <input className="ct-input" type="text" name="name" placeholder="John Doe" required />
                   <div className="ct-underline" />
                 </div>
                 <div className="ct-field">
                   <label className="ct-label">Email Address</label>
-                  <input className="ct-input" type="email" placeholder="john@domain.com" />
+                  <input className="ct-input" type="email" name="email" placeholder="john@domain.com" required />
                   <div className="ct-underline" />
                 </div>
               </div>
 
               <div className="ct-field">
                 <label className="ct-label">Interested In</label>
-                <select className="ct-input ct-select">
+                <select className="ct-input ct-select" name="service">
                   <option>Brand Strategy</option>
                   <option>Content Production</option>
                   <option>Paid Ads</option>
@@ -120,6 +138,7 @@ const Contact = () => {
                 <label className="ct-label">Message</label>
                 <textarea
                   className="ct-input ct-textarea"
+                  name="message"
                   placeholder="Tell us about the mission..."
                   rows={3}
                 />
@@ -187,12 +206,10 @@ const Contact = () => {
             <span className="ct-location-icon">📍</span>
             <h2 className="ct-location-heading">Find our heartbeat</h2>
             <p className="ct-location-desc">
-              Located in the heart of Faridabad, our studio is a laboratory for bold ideas and
-              digital craftsmanship. We're always open for a coffee and a deep dive into your
-              brand's future.
+              Headquartered in the heart of Nagpur with creative production hubs across Canada and Faridabad, our studios are laboratories for bold ideas and digital craftsmanship. We're always open for a coffee and a deep dive into your brand's future.
             </p>
             <a
-              href="https://maps.google.com/?q=Puri+High+Street,+Faridabad"
+              href="https://maps.google.com/?q=Nagpur,+Maharashtra"
               target="_blank"
               rel="noreferrer"
               className="ct-location-link"
@@ -201,15 +218,15 @@ const Contact = () => {
             </a>
           </div>
           <div className="ct-map-placeholder">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112349.56942004245!2d77.24075196924859!3d28.358607198162125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdc15f5a424b1%3A0xe37ebac90fcba19!2sFaridabad%2C%20Haryana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg)', opacity: 0.8 }} 
-              allowFullScreen="" 
-              loading="lazy" 
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238087.6665749085!2d78.86948854960938!3d21.145794399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c0a5a31faf13%3A0x19b37d06d0bb3e2b!2sNagpur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg)', opacity: 0.8 }}
+              allowFullScreen=""
+              loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Faridabad Map"
+              title="Nagpur Map"
             ></iframe>
           </div>
         </div>

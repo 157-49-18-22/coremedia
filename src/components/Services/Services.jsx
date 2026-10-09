@@ -30,14 +30,14 @@ const services = [
 ];
 
 const stats = [
-  { value: '150+', label: 'Projects Delivered' },
-  { value: '5+', label: 'Years of Expertise' },
-  { value: '98%', label: 'Client Satisfaction' },
-  { value: '3x', label: 'Avg. ROAS Growth' },
+  { value: '50+', label: 'Projects Delivered' },
+  { value: '3+', label: 'Years of Expertise' },
+  { value: '96%', label: 'Client Satisfaction' },
+  { value: '2x', label: 'Avg. ROAS Growth' },
 ];
 
 const tools = [
-  'AFTER EFFECTS', 'CINEMA 4D', 'PREMIERE PRO', 'FIGMA',
+  'AFTER EFFECTS', 'PREMIERE PRO', 'FIGMA',
   'META ADS', 'GOOGLE ADS', 'PHOTOSHOP', 'DAVINCI RESOLVE',
   'AFTER EFFECTS', 'CINEMA 4D', 'PREMIERE PRO', 'FIGMA',
   'META ADS', 'GOOGLE ADS', 'PHOTOSHOP', 'DAVINCI RESOLVE',

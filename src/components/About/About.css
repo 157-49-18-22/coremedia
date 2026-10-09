@@ -57,64 +57,11 @@
   color: var(--text-primary);
 }
 
-.experience-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.experience-row {
-  display: grid;
-  grid-template-columns: 2fr 2fr 1fr;
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  align-items: center;
-}
-
-.exp-title {
-  color: var(--text-secondary);
-}
-
-.exp-company {
-  color: var(--text-secondary);
-}
-
-.exp-date {
-  color: var(--text-secondary);
-  text-align: right;
-}
-
-.recent-works {
-  margin-top: 4rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.recent-works h3 {
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-}
-
-.arrow-down {
-  width: 32px;
-  height: 32px;
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.arrow-down:hover {
-  color: var(--text-primary);
-  transform: translateY(4px);
-}
-
 .about-image-wrapper {
   border-radius: 12px;
   overflow: hidden;
   height: 100%;
-  min-height: 0;
+  min-height: 420px;
   position: relative;
 }
 

@@ -1,30 +1,35 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Process.css';
 import FlipButton from '../FlipButton/FlipButton';
 
 const steps = [
   {
     number: '1',
-    title: 'Define & Strategize',
-    desc: 'We deep dive into your brand goals, target audience, and current digital presence to build a customized content or advertising blueprint.',
+    title: 'Discover & Strategy',
+    tagline: 'Understand the brand before the camera rolls.',
+    desc: 'We start by understanding your business, audience, and marketing goals. Together, we create a content strategy, define the creative direction, and plan every detail to ensure your shoot delivers measurable results.',
     img: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?q=80&w=800&auto=format&fit=crop',
   },
   {
     number: '2',
-    title: 'Produce',
-    desc: 'From camera setup to on-location shoots, our team executes high-quality production — photography, videography, and commercial content creation.',
+    title: 'Shoot & Create',
+    tagline: 'Professional production with purpose.',
+    desc: 'From product shoots and lifestyle content to brand films and social media videos, we capture high-quality visuals that align with your brand identity and marketing objectives.',
     img: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=800&auto=format&fit=crop',
   },
   {
     number: '3',
-    title: 'Perfect',
-    desc: 'Our editors refine every frame — color grading, motion graphics, sound design, and precise cuts that maximize audience retention and engagement.',
+    title: 'Edit & Enhance',
+    tagline: 'Where great content becomes exceptional.',
+    desc: 'Our editing team transforms raw footage into polished, engaging content through color grading, sound design, motion graphics, retouching, and platform-specific optimization.',
     img: 'https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?q=80&w=800&auto=format&fit=crop',
   },
   {
     number: '4',
-    title: 'Launch & Scale',
-    desc: 'We deploy your content and ad campaigns on Meta and Google, continuously optimizing with data-driven insights to scale results and maximize ROI.',
+    title: 'Deliver & Grow',
+    tagline: 'Content ready to perform.',
+    desc: 'Receive optimized files for every platform—Instagram, YouTube, Meta Ads, LinkedIn, your website, and more. We can also support your marketing campaigns to help your content generate real business results.',
     img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
   },
 ];
@@ -50,8 +55,12 @@ const Process = () => {
               Our seamless workflow designed to take your media from concept to high-performing asset.
             </p>
             <div className="process-buttons">
-              <FlipButton variant="ghost">Book a Free Call</FlipButton>
-              <FlipButton variant="ghost">See Projects</FlipButton>
+              <Link to="/contact">
+                <FlipButton variant="ghost">Book a Free Call</FlipButton>
+              </Link>
+              <Link to="/portfolio">
+                <FlipButton variant="ghost">See Projects</FlipButton>
+              </Link>
             </div>
           </div>
         </div>
@@ -71,6 +80,7 @@ const Process = () => {
                 <span className="step-number">{step.number}</span>
               </div>
               <h3 className="step-title">{step.title}</h3>
+              {step.tagline && <p className="step-tagline">{step.tagline}</p>}
               <p className="step-desc">{step.desc}</p>
             </div>
           </div>

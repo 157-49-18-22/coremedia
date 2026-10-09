@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Hero.css';
 import FlipButton from '../FlipButton/FlipButton';
 
@@ -11,24 +12,28 @@ const Hero = () => {
         </video>
       </div>
       <div className="hero-overlay"></div>
-      
+
       <div className="hero-content">
         <div className="badge">
           <span className="dot"></span>
-          Elite Digital Media Agency
+          Nagpur · Canada · Faridabad
         </div>
-        
+
         <h1 className="hero-title">
-          Bold Content. <br />Limitless Growth.
+          YOUR VISION. <br />OUR PRODUCTION.
         </h1>
-        
+
         <p className="hero-subtitle">
           Elevate your digital presence with strategic content creation, premium production, and targeted ad campaigns. We turn casual viewers into loyal customers through bold visuals and data-driven growth.
         </p>
-        
+
         <div className="hero-buttons">
-          <FlipButton variant="secondary">See Our Work</FlipButton>
-          <FlipButton variant="secondary">Book a Discovery Call</FlipButton>
+          <Link to="/portfolio">
+            <FlipButton variant="secondary">See Our Work</FlipButton>
+          </Link>
+          <Link to="/contact">
+            <FlipButton variant="secondary">Book a Discovery Call</FlipButton>
+          </Link>
         </div>
       </div>
 
