@@ -28,6 +28,8 @@ const offices = [
 const Contact = () => {
   const revealRefs = useRef([]);
   const [openFaq, setOpenFaq] = useState(null);
+  const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -47,21 +49,38 @@ const Contact = () => {
     if (el && !revealRefs.current.includes(el)) revealRefs.current.push(el);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const name = e.target.elements['name']?.value?.trim() || '';
-    const email = e.target.elements['email']?.value?.trim() || '';
-    const service = e.target.elements['service']?.value?.trim() || '';
-    const message = e.target.elements['message']?.value?.trim() || '';
-    const subject = encodeURIComponent(`Inquiry from ${name} — ${service}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nInterested In: ${service}\n\nMessage:\n${message}`
-    );
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    if (isMobile) {
-      window.location.href = `mailto:hello@clickcoremedia.com?subject=${subject}&body=${body}`;
-    } else {
-      window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=hello@clickcoremedia.com&su=${subject}&body=${body}`, '_blank');
+    setStatus('submitting');
+    setErrorMessage('');
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xwlvogwp', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        form.reset();
+      } else {
+        const data = await response.json().catch(() => ({}));
+        if (data && data.errors && data.errors.length > 0) {
+          setErrorMessage(data.errors.map((err) => err.message).join(', '));
+        } else {
+          setErrorMessage('There was a problem submitting your form. Please try again.');
+        }
+        setStatus('error');
+      }
+    } catch (err) {
+      setErrorMessage('Network error. Please check your internet connection and try again.');
+      setStatus('error');
     }
   };
 
@@ -109,47 +128,99 @@ const Contact = () => {
         <div className="ct-split-right">
           <div className="ct-form-inner">
             <h2 className="ct-form-heading">Inquiry</h2>
-            <form className="ct-form" onSubmit={handleSubmit}>
-              <div className="ct-form-row">
+            {status === 'success' ? (
+              <div className="ct-form-success">
+                <div className="ct-success-icon">✓</div>
+                <h3 className="ct-success-title">Brief Received</h3>
+                <p className="ct-success-desc">
+                  Thank you for reaching out. We have received your details and will get back to you within 24 hours.
+                </p>
+                <button
+                  type="button"
+                  className="ct-submit-btn ct-reset-btn"
+                  onClick={() => setStatus('idle')}
+                >
+                  <span>Send Another Inquiry</span>
+                  <span className="ct-arrow">→</span>
+                </button>
+              </div>
+            ) : (
+              <form
+                className="ct-form"
+                onSubmit={handleSubmit}
+                action="https://formspree.io/f/xwlvogwp"
+                method="POST"
+              >
+                {status === 'error' && (
+                  <div className="ct-form-error">
+                    <span className="ct-error-icon">⚠</span>
+                    <span>{errorMessage || 'Failed to submit inquiry. Please try again.'}</span>
+                  </div>
+                )}
+
+                <div className="ct-form-row">
+                  <div className="ct-field">
+                    <label className="ct-label" htmlFor="ct-name">Full Name</label>
+                    <input
+                      id="ct-name"
+                      className="ct-input"
+                      type="text"
+                      name="name"
+                      placeholder="John Doe"
+                      required
+                    />
+                    <div className="ct-underline" />
+                  </div>
+                  <div className="ct-field">
+                    <label className="ct-label" htmlFor="ct-email">Email Address</label>
+                    <input
+                      id="ct-email"
+                      className="ct-input"
+                      type="email"
+                      name="email"
+                      placeholder="john@domain.com"
+                      required
+                    />
+                    <div className="ct-underline" />
+                  </div>
+                </div>
+
                 <div className="ct-field">
-                  <label className="ct-label">Full Name</label>
-                  <input className="ct-input" type="text" name="name" placeholder="John Doe" required />
+                  <label className="ct-label" htmlFor="ct-service">Interested In</label>
+                  <select id="ct-service" className="ct-input ct-select" name="service">
+                    <option value="Brand Strategy">Brand Strategy</option>
+                    <option value="Content Production">Content Production</option>
+                    <option value="Paid Ads">Paid Ads</option>
+                    <option value="Video Editing">Video Editing</option>
+                    <option value="Commercial Photography">Commercial Photography</option>
+                    <option value="Other Inquiry">Other Inquiry</option>
+                  </select>
                   <div className="ct-underline" />
                 </div>
+
                 <div className="ct-field">
-                  <label className="ct-label">Email Address</label>
-                  <input className="ct-input" type="email" name="email" placeholder="john@domain.com" required />
+                  <label className="ct-label" htmlFor="ct-message">Message</label>
+                  <textarea
+                    id="ct-message"
+                    className="ct-input ct-textarea"
+                    name="message"
+                    placeholder="Tell us about the mission..."
+                    rows={3}
+                    required
+                  />
                   <div className="ct-underline" />
                 </div>
-              </div>
 
-              <div className="ct-field">
-                <label className="ct-label">Interested In</label>
-                <select className="ct-input ct-select" name="service">
-                  <option>Brand Strategy</option>
-                  <option>Content Production</option>
-                  <option>Paid Ads</option>
-                  <option>Other Inquiry</option>
-                </select>
-                <div className="ct-underline" />
-              </div>
-
-              <div className="ct-field">
-                <label className="ct-label">Message</label>
-                <textarea
-                  className="ct-input ct-textarea"
-                  name="message"
-                  placeholder="Tell us about the mission..."
-                  rows={3}
-                />
-                <div className="ct-underline" />
-              </div>
-
-              <button type="submit" className="ct-submit-btn">
-                <span>Send Brief</span>
-                <span className="ct-arrow">→</span>
-              </button>
-            </form>
+                <button
+                  type="submit"
+                  className="ct-submit-btn"
+                  disabled={status === 'submitting'}
+                >
+                  <span>{status === 'submitting' ? 'Transmitting Brief...' : 'Send Brief'}</span>
+                  <span className="ct-arrow">{status === 'submitting' ? '•••' : '→'}</span>
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </section>

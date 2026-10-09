@@ -283,20 +283,103 @@
   border: none;
   cursor: pointer;
   font-family: 'Inter', sans-serif;
-  transition: letter-spacing 0.4s ease, background 0.3s ease, color 0.3s ease, outline 0.3s ease;
+  transition: letter-spacing 0.4s ease, background 0.3s ease, color 0.3s ease, outline 0.3s ease, opacity 0.3s ease;
 }
-.ct-submit-btn:hover {
+.ct-submit-btn:hover:not(:disabled) {
   letter-spacing: 0.5em;
   background: transparent;
   color: #ffffff;
   outline: 1px solid #ffffff;
 }
+.ct-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 .ct-arrow {
   font-size: 1.3rem;
   transition: transform 0.3s ease;
 }
-.ct-submit-btn:hover .ct-arrow {
+.ct-submit-btn:hover:not(:disabled) .ct-arrow {
   transform: translateX(6px);
+}
+
+/* Form Error Banner */
+.ct-form-error {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  padding: 1rem 1.25rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  animation: ct-fade-in 0.3s ease;
+}
+.ct-error-icon {
+  font-size: 1.1rem;
+}
+
+/* Form Success State */
+.ct-form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 3rem 2.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  animation: ct-fade-in 0.5s ease;
+}
+.ct-success-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #131313;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 1.75rem;
+}
+.ct-success-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 0.75rem;
+}
+.ct-success-desc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0 0 2.5rem;
+  max-width: 440px;
+}
+.ct-reset-btn {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.ct-reset-btn:hover {
+  background: #ffffff;
+  color: #131313;
+  border-color: #ffffff;
+}
+
+@keyframes ct-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ══════════════════════════
