@@ -24,7 +24,7 @@ const services = [
   {
     num: '04',
     title: 'Motion Design',
-    desc: 'High-end 2D and 3D animation that brings static brands to life with fluid, dynamic motion and emotional resonance.',
+    desc: 'High-end 2D and 3D animation that brings static brands to life with fluid, cinematic motion and emotional resonance.',
     tag: 'Animation · After Effects · Reel',
   },
 ];
@@ -39,7 +39,7 @@ const stats = [
 const tools = [
   'AFTER EFFECTS', 'PREMIERE PRO', 'FIGMA',
   'META ADS', 'GOOGLE ADS', 'PHOTOSHOP', 'DAVINCI RESOLVE',
-  'AFTER EFFECTS', 'BLENDER 3D', 'PREMIERE PRO', 'FIGMA',
+  'AFTER EFFECTS', 'CINEMA 4D', 'PREMIERE PRO', 'FIGMA',
   'META ADS', 'GOOGLE ADS', 'PHOTOSHOP', 'DAVINCI RESOLVE',
 ];
 

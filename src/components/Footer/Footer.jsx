@@ -51,7 +51,7 @@ const Footer = () => {
               <img src="/ClickCore BW.png" alt="ClickCore Media" className="footer-logo-img" />
             </Link>
             <p className="footer-brand-desc">
-              High-impact visual production, high-retention video editing, and data-driven growth systems engineered for modern brands across Nagpur, Canada & Faridabad.
+              High-impact visual production, cinema-grade editing, and data-driven growth systems engineered for modern brands.
             </p>
 
             {/* Live Availability Badge */}

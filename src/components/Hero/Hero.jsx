@@ -16,11 +16,11 @@ const Hero = () => {
       <div className="hero-content">
         <div className="badge">
           <span className="dot"></span>
-          Nagpur · Canada · Faridabad
+          Elite Digital Media Agency
         </div>
 
         <h1 className="hero-title">
-          YOUR VISION. <br />OUR PRODUCTION.
+          YOUR VISION. <br />OUR PRODUCION.
         </h1>
 
         <p className="hero-subtitle">

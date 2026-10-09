@@ -206,7 +206,9 @@ const Contact = () => {
             <span className="ct-location-icon">📍</span>
             <h2 className="ct-location-heading">Find our heartbeat</h2>
             <p className="ct-location-desc">
-              Headquartered in the heart of Nagpur with creative production hubs across Canada and Faridabad, our studios are laboratories for bold ideas and digital craftsmanship. We're always open for a coffee and a deep dive into your brand's future.
+              Located in the heart of Nagpur, our studio is a laboratory for bold ideas and
+              digital craftsmanship. We're always open for a coffee and a deep dive into your
+              brand's future.
             </p>
             <a
               href="https://maps.google.com/?q=Nagpur,+Maharashtra"

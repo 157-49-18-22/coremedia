@@ -7,7 +7,7 @@ const About = () => {
       <div className="about-content">
         <h2 className="about-title">Meet ClickCoreMedia</h2>
         <p className="about-description">
-          We are a full-service creative and growth agency headquartered in Nagpur with production arms across Canada and Faridabad. From high-end commercial photography to high-retention video editing and high-converting Meta and Google ad campaigns, we bridge the gap between stunning creative work and measurable business results.
+          We are a full-service creative and growth agency dedicated to brands and creators who want to stand out. From high-end commercial photography to high-retention video editing and high-converting Meta and Google ad campaigns, we bridge the gap between stunning creative work and measurable business results.
         </p>
 
         <div className="divider"></div>
