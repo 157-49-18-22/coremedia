@@ -187,9 +187,7 @@
 .footer-grid> :last-child {}
 
 @media (max-width: 1024px) {
-  .footer-grid> :last-child {
-    justify-self: start;
-  }
+  .footer-grid> :last-child {}
 }
 
 .footer-col-title {
