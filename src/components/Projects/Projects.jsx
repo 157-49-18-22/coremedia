@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Projects.css';
 import FlipButton from '../FlipButton/FlipButton';
@@ -117,6 +117,13 @@ const projects = [
 
 const Projects = () => {
   const cardsRef = useRef([]);
+  const [expandedCards, setExpandedCards] = useState({});
+
+  const toggleExpand = (id, e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setExpandedCards((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -142,54 +149,82 @@ const Projects = () => {
   const centerCol = projects.filter((p) => p.col === 'center');
   const rightCol = projects.filter((p) => p.col === 'right');
 
-  const renderCard = (p, globalIdx) => (
-    <div
-      key={p.id}
-      className={`project-card ${p.col === 'center' ? 'card-tall' : 'card-standard'}`}
-      ref={(el) => (cardsRef.current[globalIdx] = el)}
-      style={{ transitionDelay: `${(globalIdx % 3) * 0.1}s` }}
-    >
-      <img src={p.img} alt={p.title} className="project-image" />
-      <div className="project-gradient"></div>
+  const renderCard = (p, globalIdx) => {
+    const isExpanded = !!expandedCards[p.id];
+    const maxVisible = p.col === 'center' ? 5 : 3;
+    const itemsToShow = isExpanded ? p.includes : p.includes.slice(0, maxVisible);
+    const hiddenCount = p.includes.length - maxVisible;
+    const remainingItems = p.includes.slice(maxVisible);
 
-      {/* Top Category Tag */}
-      <div className="project-top-tag">
-        <span>{p.category}</span>
-      </div>
+    return (
+      <div
+        key={p.id}
+        className={`project-card ${p.col === 'center' ? 'card-tall' : 'card-standard'} project-card--${p.col}`}
+        ref={(el) => (cardsRef.current[globalIdx] = el)}
+        style={{ transitionDelay: `${(globalIdx % 3) * 0.1}s` }}
+      >
+        <img src={p.img} alt={p.title} className="project-image" />
+        <div className="project-gradient"></div>
 
-      <div className="project-content-wrapper">
-        <div className="project-text-info">
-          <h3 className="project-card-title">{p.title}</h3>
-
-          {p.results && (
-            <div className="project-results-badge">
-              <span className="results-icon">⚡</span>
-              <span className="results-text">{p.results}</span>
-            </div>
-          )}
-
-          <div className="project-includes-list">
-            {p.includes.slice(0, p.col === 'center' ? 5 : 3).map((item, idx) => (
-              <span key={idx} className="project-include-item">
-                • {item}
-              </span>
-            ))}
-            {p.col !== 'center' && p.includes.length > 3 && (
-              <span className="project-include-more">
-                +{p.includes.length - 3} more
-              </span>
-            )}
-          </div>
+        {/* Top Category Tag */}
+        <div className="project-top-tag">
+          <span>{p.category}</span>
         </div>
 
-        <Link to="/portfolio" className="card-overlay-link">
-          <div className="card-overlay">
-            <span className="casestudy-btn">View Casestudy ↗</span>
+        <div className="project-content-wrapper">
+          <div className="project-text-info">
+            <h3 className="project-card-title">{p.title}</h3>
+
+            {p.results && (
+              <div className="project-results-badge">
+                <span className="results-icon">⚡</span>
+                <span className="results-text">{p.results}</span>
+              </div>
+            )}
+
+            <div className="project-includes-list">
+              {itemsToShow.map((item, idx) => (
+                <span key={idx} className="project-include-item">
+                  • {item}
+                </span>
+              ))}
+
+              {p.col !== 'center' && hiddenCount > 0 && (
+                <button
+                  type="button"
+                  className={`project-include-more ${isExpanded ? 'is-expanded' : ''}`}
+                  onClick={(e) => toggleExpand(p.id, e)}
+                  title={isExpanded ? 'Click to show less' : `Also includes: ${remainingItems.join(', ')}`}
+                  aria-label={isExpanded ? 'Show less deliverables' : `Show ${hiddenCount} more deliverables`}
+                >
+                  {isExpanded ? (
+                    <span className="expand-label">− show less</span>
+                  ) : (
+                    <>
+                      <span className="plus-count">+{hiddenCount}</span>
+                      <span className="plus-text">more</span>
+                      <div className="project-include-more-tooltip">
+                        <span className="tooltip-title">Also Includes</span>
+                        {remainingItems.map((moreItem, mIdx) => (
+                          <span key={mIdx} className="tooltip-item">• {moreItem}</span>
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </button>
+              )}
+            </div>
           </div>
-        </Link>
+
+          <Link to="/portfolio" className="card-overlay-link">
+            <div className="card-overlay">
+              <span className="casestudy-btn">View Casestudy ↗</span>
+            </div>
+          </Link>
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <section id="projects" className="projects-section">

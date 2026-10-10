@@ -12,9 +12,9 @@ const Footer = () => {
     e.preventDefault();
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     if (isMobile) {
-      window.location.href = "mailto:hello@clickcoremedia.com?subject=Project%20Inquiry";
+      window.location.href = "mailto:connect@clickcoremedia.com?subject=Project%20Inquiry";
     } else {
-      window.open("https://mail.google.com/mail/?view=cm&fs=1&to=hello@clickcoremedia.com&su=Project%20Inquiry", "_blank", "noopener,noreferrer");
+      window.open("https://mail.google.com/mail/?view=cm&fs=1&to=connect@clickcoremedia.com&su=Project%20Inquiry", "_blank", "noopener,noreferrer");
     }
   };
 
@@ -181,12 +181,12 @@ const Footer = () => {
           </div>
 
           <a
-            href="mailto:hello@clickcoremedia.com?subject=Project%20Inquiry"
+            href="mailto:connect@clickcoremedia.com?subject=Project%20Inquiry"
             onClick={handleEmailClick}
             className="footer-email"
           >
             <span className="email-dot"></span>
-            hello@clickcoremedia.com
+            connect@clickcoremedia.com
           </a>
         </div>
 

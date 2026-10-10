@@ -1,0 +1,212 @@
+.country-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.country-select-wrapper.is-open {
+  z-index: 150;
+}
+
+.country-select-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  color: #e5e2e1;
+  font-size: 1.05rem;
+  font-family: 'Inter', sans-serif;
+  padding: 0.5rem 0 1rem;
+  outline: none;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.3s ease;
+}
+
+.country-select-trigger:focus,
+.country-select-trigger.active {
+  border-color: #ffffff;
+}
+
+.country-trigger-text {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.country-trigger-text.placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.selected-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.country-chevron {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.4);
+  transition: transform 0.3s ease, color 0.3s ease;
+  user-select: none;
+  margin-left: 0.5rem;
+}
+
+.country-chevron.open {
+  transform: rotate(180deg);
+  color: #ffffff;
+}
+
+/* ── Dropdown Menu ── */
+.country-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: #0f1013;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.85);
+  z-index: 100;
+  overflow: hidden;
+  animation: countryFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes countryFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Search Box ── */
+.country-search-box {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  gap: 0.6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.country-search-icon {
+  color: rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+}
+
+.country-search-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.country-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.country-search-clear {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.country-search-clear:hover {
+  color: #ffffff;
+}
+
+/* ── Countries List ── */
+.country-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem 0;
+  max-height: 240px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Slim Custom Scrollbar */
+.country-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.country-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.country-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+}
+
+.country-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.country-list-item {
+  display: flex;
+  align-items: center;
+  padding: 0.65rem 1rem;
+  gap: 0.75rem;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.country-list-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.country-list-item.selected {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.country-flag {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.country-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.country-check {
+  font-size: 0.85rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.country-no-results {
+  padding: 1.25rem 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.35);
+}

@@ -20,7 +20,7 @@ const Hero = () => {
         </div>
 
         <h1 className="hero-title">
-          YOUR VISION. <br />OUR PRODUCION.
+          YOUR VISION. <br />OUR PRODUCTION.
         </h1>
 
         <p className="hero-subtitle">

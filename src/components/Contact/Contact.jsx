@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Contact.css';
+import CountrySelect from '../CountrySelect/CountrySelect';
 
 const faqs = [
   {
@@ -30,6 +31,7 @@ const Contact = () => {
   const [openFaq, setOpenFaq] = useState(null);
   const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
   const [errorMessage, setErrorMessage] = useState('');
+  const [country, setCountry] = useState('');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -69,6 +71,7 @@ const Contact = () => {
       if (response.ok) {
         setStatus('success');
         form.reset();
+        setCountry('');
       } else {
         const data = await response.json().catch(() => ({}));
         if (data && data.errors && data.errors.length > 0) {
@@ -185,17 +188,29 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="ct-field">
-                  <label className="ct-label" htmlFor="ct-service">Interested In</label>
-                  <select id="ct-service" className="ct-input ct-select" name="service">
-                    <option value="Brand Strategy">Brand Strategy</option>
-                    <option value="Content Production">Content Production</option>
-                    <option value="Paid Ads">Paid Ads</option>
-                    <option value="Video Editing">Video Editing</option>
-                    <option value="Commercial Photography">Commercial Photography</option>
-                    <option value="Other Inquiry">Other Inquiry</option>
-                  </select>
-                  <div className="ct-underline" />
+                <div className="ct-form-row">
+                  <div className="ct-field">
+                    <label className="ct-label" htmlFor="ct-service">Interested In</label>
+                    <select id="ct-service" className="ct-input ct-select" name="service">
+                      <option value="Brand Strategy">Brand Strategy</option>
+                      <option value="Content Production">Content Production</option>
+                      <option value="Paid Ads">Paid Ads</option>
+                      <option value="Video Editing">Video Editing</option>
+                      <option value="Commercial Photography">Commercial Photography</option>
+                      <option value="Other Inquiry">Other Inquiry</option>
+                    </select>
+                    <div className="ct-underline" />
+                  </div>
+
+                  <div className="ct-field">
+                    <label className="ct-label">Country</label>
+                    <CountrySelect
+                      name="country"
+                      value={country}
+                      onChange={(val) => setCountry(val)}
+                      required
+                    />
+                  </div>
                 </div>
 
                 <div className="ct-field">
