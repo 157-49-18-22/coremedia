@@ -73,7 +73,7 @@ const Process = () => {
             key={step.number}
           >
             <div className="step-img-wrapper">
-              <img src={step.img} alt={step.title} className="step-img" />
+              <img src={step.img} alt={step.title} className="step-img" loading="lazy" decoding="async" />
             </div>
             <div className="step-body">
               <div className="step-header">

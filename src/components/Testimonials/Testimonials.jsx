@@ -95,7 +95,7 @@ const Testimonials = () => {
           {loopList.map((review, index) => (
             <div key={`${review.id}-${index}`} className="review-card">
               <div className="review-avatar">
-                <img src={review.avatar} alt={review.name} />
+                <img src={review.avatar} alt={review.name} loading="lazy" decoding="async" />
               </div>
 
               <h3 className="review-name">{review.name}</h3>

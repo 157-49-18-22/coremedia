@@ -163,7 +163,7 @@ const Projects = () => {
         ref={(el) => (cardsRef.current[globalIdx] = el)}
         style={{ transitionDelay: `${(globalIdx % 3) * 0.1}s` }}
       >
-        <img src={p.img} alt={p.title} className="project-image" />
+        <img src={p.img} alt={p.title} className="project-image" loading="lazy" decoding="async" />
         <div className="project-gradient"></div>
 
         {/* Top Category Tag */}

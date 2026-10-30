@@ -100,29 +100,29 @@ const Portfolio = () => {
               <span className="pf-hero-badge">Curated Archive</span>
               <span className="pf-hero-year">2023 — 2024</span>
             </div>
-            
+
             <h1 className="pf-hero-title">
               <span className="text-stroke-light">SELECTED</span><br />
               WORKS.
             </h1>
-            
+
             <p className="pf-hero-desc">
-              We don't just build campaigns; we craft digital legacies. Explore our 
+              We don't just build campaigns; we craft digital legacies. Explore our
               highest-fidelity projects across motion, strategy, and production.
             </p>
           </div>
-          
+
           <div className="pf-hero-image-wrapper">
-             <div className="pf-image-overlay"></div>
-             <img 
-               src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1200&auto=format&fit=crop" 
-               alt="Portfolio Hero" 
-               className="pf-hero-main-img" 
-             />
-             <div className="pf-scroll-indicator">
-                <span className="pf-scroll-text">SCROLL</span>
-                <div className="pf-scroll-line"></div>
-             </div>
+            <div className="pf-image-overlay"></div>
+            <img
+              src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1200&auto=format&fit=crop"
+              alt="Portfolio Hero"
+              className="pf-hero-main-img"
+            />
+            <div className="pf-scroll-indicator">
+              <span className="pf-scroll-text">SCROLL</span>
+              <div className="pf-scroll-line"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -131,14 +131,14 @@ const Portfolio = () => {
       <section className="pf-projects-section">
         <div className="pf-projects-grid">
           {projects.map((project, index) => (
-            <div 
-              className={`pf-project-card pf-card-${project.size} pf-reveal`} 
+            <div
+              className={`pf-project-card pf-card-${project.size} pf-reveal`}
               key={project.id}
               ref={addRef}
               style={{ transitionDelay: `${(index % 3) * 0.1}s` }}
             >
               <div className="pf-card-image-box">
-                <img src={project.image} alt={project.client} />
+                <img src={project.image} alt={project.client} loading="lazy" decoding="async" />
                 <div className="pf-card-hover-overlay">
                   <span className="pf-view-project-btn">View Case Study <span className="arrow">↗</span></span>
                 </div>
@@ -172,7 +172,7 @@ const Portfolio = () => {
           <div className="pf-cta-premium-content">
             <p className="pf-cta-eyebrow">YOUR TURN</p>
             <h2 className="pf-cta-mega-title">
-              Ready to create <br/>your legacy?
+              Ready to create <br />your legacy?
             </h2>
             <Link to="/contact" className="pf-premium-btn">
               <span className="btn-text">Start a Project</span>
