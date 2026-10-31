@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #050505;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --accent-color: #ffffff;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+
+  /* ── Global section horizontal padding ── */
+  --section-px: 4rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden !important;
+  width: 100%;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Global: every section fills full width with same horizontal padding ── */
+.hero,
+.about-section,
+.rw-section,
+.projects-section,
+.services-section,
+.process-section,
+.faq-section,
+.testimonials-section,
+.footer-section,
+.pf-hero,
+.pf-projects-section,
+.pf-ticker-container,
+.pf-cta-premium,
+.ct-hero,
+.ct-split-section,
+.ct-reach-section,
+.ct-faq-section,
+.ct-location-section {
+  width: 100%;
+  max-width: 100% !important;
+  box-sizing: border-box;
+  padding-left: var(--section-px) !important;
+  padding-right: var(--section-px) !important;
+}
+
+/* Exceptions: sections that use a child grid/container (not the section itself) */
+.projects-grid,
+.projects-section > .projects-header,
+.projects-section > .projects-footer,
+.pf-projects-grid,
+.pf-hero-inner,
+.pf-cta-premium-inner {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+@media (max-width: 1024px) {
+  :root { --section-px: 2.5rem; }
+}
+
+@media (max-width: 600px) {
+  :root { --section-px: 1.25rem; }
+}

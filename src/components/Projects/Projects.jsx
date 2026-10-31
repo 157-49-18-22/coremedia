@@ -29,7 +29,9 @@ const projects = [
       'Slow-motion cinematic shots',
       'Color grading process'
     ],
-    img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1000&auto=format&fit=crop',
+    img: 'https://res.cloudinary.com/dp4izyo05/video/upload/f_auto,q_auto,w_800/v1793417856/Hammers_01_bpiqhh.jpg',
+    video: 'https://res.cloudinary.com/dp4izyo05/video/upload/f_auto,q_auto,w_800/v1793417856/Hammers_01_bpiqhh.mp4',
+    link: 'https://www.instagram.com/clickcoremedia',
   },
   {
     id: 3,
@@ -115,6 +117,157 @@ const projects = [
   },
 ];
 
+const ProjectCard = ({
+  project,
+  isExpanded,
+  toggleExpand,
+  cardRef,
+  transitionDelay,
+}) => {
+  const videoRef = useRef(null);
+
+  // Auto-play when visible on screen, pause when scrolled away
+  useEffect(() => {
+    if (!project.video) return;
+    const videoEl = videoRef.current;
+    if (!videoEl) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          videoEl.play().catch(() => {});
+        } else {
+          videoEl.pause();
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(videoEl);
+    return () => observer.disconnect();
+  }, [project.video]);
+
+  const handleCardClick = (e) => {
+    // If click was on the +more expand button, let it expand without redirecting
+    if (e.target.closest('.project-include-more')) {
+      return;
+    }
+    if (project.link) {
+      window.open(project.link, '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  const maxVisible = project.col === 'center' ? 5 : 3;
+  const itemsToShow = isExpanded ? project.includes : project.includes.slice(0, maxVisible);
+  const hiddenCount = project.includes.length - maxVisible;
+  const remainingItems = project.includes.slice(maxVisible);
+
+  return (
+    <div
+      key={project.id}
+      className={`project-card ${project.col === 'center' ? 'card-tall' : 'card-standard'} project-card--${project.col} ${project.video ? 'has-video-preview' : ''}`}
+      ref={cardRef}
+      style={{ transitionDelay }}
+      onClick={project.link ? handleCardClick : undefined}
+    >
+      {!project.video && (
+        <img
+          src={project.img}
+          alt={project.title}
+          className="project-image"
+          decoding="async"
+        />
+      )}
+
+      {project.video && (
+        <video
+          ref={videoRef}
+          src={project.video}
+          className="project-video-preview"
+          muted
+          loop
+          playsInline
+          autoPlay
+          preload="auto"
+        />
+      )}
+
+      <div className="project-gradient"></div>
+
+      {/* Top Category Tag */}
+      <div className="project-top-tag">
+        <span>{project.category}</span>
+      </div>
+
+      <div className="project-content-wrapper">
+        <div className="project-text-info">
+          <h3 className="project-card-title">{project.title}</h3>
+
+          {project.results && (
+            <div className="project-results-badge">
+              <span className="results-icon">⚡</span>
+              <span className="results-text">{project.results}</span>
+            </div>
+          )}
+
+          <div className="project-includes-list">
+            {itemsToShow.map((item, idx) => (
+              <span key={idx} className="project-include-item">
+                • {item}
+              </span>
+            ))}
+
+            {project.col !== 'center' && hiddenCount > 0 && (
+              <button
+                type="button"
+                className={`project-include-more ${isExpanded ? 'is-expanded' : ''}`}
+                onClick={(e) => toggleExpand(project.id, e)}
+                title={isExpanded ? 'Click to show less' : `Also includes: ${remainingItems.join(', ')}`}
+                aria-label={isExpanded ? 'Show less deliverables' : `Show ${hiddenCount} more deliverables`}
+              >
+                {isExpanded ? (
+                  <span className="expand-label">− show less</span>
+                ) : (
+                  <>
+                    <span className="plus-count">+{hiddenCount}</span>
+                    <span className="plus-text">more</span>
+                    <div className="project-include-more-tooltip">
+                      <span className="tooltip-title">Also Includes</span>
+                      {remainingItems.map((moreItem, mIdx) => (
+                        <span key={mIdx} className="tooltip-item">• {moreItem}</span>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </button>
+            )}
+          </div>
+        </div>
+
+        {project.link ? (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="card-overlay-link"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="card-overlay">
+              <span className="casestudy-btn">Watch on Instagram ↗</span>
+            </div>
+          </a>
+        ) : (
+          <Link to="/portfolio" className="card-overlay-link">
+            <div className="card-overlay">
+              <span className="casestudy-btn">View Casestudy ↗</span>
+            </div>
+          </Link>
+        )}
+      </div>
+    </div>
+  );
+};
+
 const Projects = () => {
   const cardsRef = useRef([]);
   const [expandedCards, setExpandedCards] = useState({});
@@ -149,83 +302,6 @@ const Projects = () => {
   const centerCol = projects.filter((p) => p.col === 'center');
   const rightCol = projects.filter((p) => p.col === 'right');
 
-  const renderCard = (p, globalIdx) => {
-    const isExpanded = !!expandedCards[p.id];
-    const maxVisible = p.col === 'center' ? 5 : 3;
-    const itemsToShow = isExpanded ? p.includes : p.includes.slice(0, maxVisible);
-    const hiddenCount = p.includes.length - maxVisible;
-    const remainingItems = p.includes.slice(maxVisible);
-
-    return (
-      <div
-        key={p.id}
-        className={`project-card ${p.col === 'center' ? 'card-tall' : 'card-standard'} project-card--${p.col}`}
-        ref={(el) => (cardsRef.current[globalIdx] = el)}
-        style={{ transitionDelay: `${(globalIdx % 3) * 0.1}s` }}
-      >
-        <img src={p.img} alt={p.title} className="project-image" loading="lazy" decoding="async" />
-        <div className="project-gradient"></div>
-
-        {/* Top Category Tag */}
-        <div className="project-top-tag">
-          <span>{p.category}</span>
-        </div>
-
-        <div className="project-content-wrapper">
-          <div className="project-text-info">
-            <h3 className="project-card-title">{p.title}</h3>
-
-            {p.results && (
-              <div className="project-results-badge">
-                <span className="results-icon">⚡</span>
-                <span className="results-text">{p.results}</span>
-              </div>
-            )}
-
-            <div className="project-includes-list">
-              {itemsToShow.map((item, idx) => (
-                <span key={idx} className="project-include-item">
-                  • {item}
-                </span>
-              ))}
-
-              {p.col !== 'center' && hiddenCount > 0 && (
-                <button
-                  type="button"
-                  className={`project-include-more ${isExpanded ? 'is-expanded' : ''}`}
-                  onClick={(e) => toggleExpand(p.id, e)}
-                  title={isExpanded ? 'Click to show less' : `Also includes: ${remainingItems.join(', ')}`}
-                  aria-label={isExpanded ? 'Show less deliverables' : `Show ${hiddenCount} more deliverables`}
-                >
-                  {isExpanded ? (
-                    <span className="expand-label">− show less</span>
-                  ) : (
-                    <>
-                      <span className="plus-count">+{hiddenCount}</span>
-                      <span className="plus-text">more</span>
-                      <div className="project-include-more-tooltip">
-                        <span className="tooltip-title">Also Includes</span>
-                        {remainingItems.map((moreItem, mIdx) => (
-                          <span key={mIdx} className="tooltip-item">• {moreItem}</span>
-                        ))}
-                      </div>
-                    </>
-                  )}
-                </button>
-              )}
-            </div>
-          </div>
-
-          <Link to="/portfolio" className="card-overlay-link">
-            <div className="card-overlay">
-              <span className="casestudy-btn">View Casestudy ↗</span>
-            </div>
-          </Link>
-        </div>
-      </div>
-    );
-  };
-
   return (
     <section id="projects" className="projects-section">
       <div className="projects-header">
@@ -238,15 +314,42 @@ const Projects = () => {
       {/* 3-Column Masonry: 3 on left, 2 tall in center, 3 on right = 8 cards */}
       <div className="projects-masonry">
         <div className="projects-col col-side">
-          {leftCol.map((p, idx) => renderCard(p, idx))}
+          {leftCol.map((p, idx) => (
+            <ProjectCard
+              key={p.id}
+              project={p}
+              isExpanded={!!expandedCards[p.id]}
+              toggleExpand={toggleExpand}
+              cardRef={(el) => (cardsRef.current[idx] = el)}
+              transitionDelay={`${(idx % 3) * 0.1}s`}
+            />
+          ))}
         </div>
 
         <div className="projects-col col-center">
-          {centerCol.map((p, idx) => renderCard(p, idx + 3))}
+          {centerCol.map((p, idx) => (
+            <ProjectCard
+              key={p.id}
+              project={p}
+              isExpanded={!!expandedCards[p.id]}
+              toggleExpand={toggleExpand}
+              cardRef={(el) => (cardsRef.current[idx + 3] = el)}
+              transitionDelay={`${((idx + 3) % 3) * 0.1}s`}
+            />
+          ))}
         </div>
 
         <div className="projects-col col-side">
-          {rightCol.map((p, idx) => renderCard(p, idx + 5))}
+          {rightCol.map((p, idx) => (
+            <ProjectCard
+              key={p.id}
+              project={p}
+              isExpanded={!!expandedCards[p.id]}
+              toggleExpand={toggleExpand}
+              cardRef={(el) => (cardsRef.current[idx + 5] = el)}
+              transitionDelay={`${((idx + 5) % 3) * 0.1}s`}
+            />
+          ))}
         </div>
       </div>
 

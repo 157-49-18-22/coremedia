@@ -156,6 +156,36 @@
   }
 }
 
+.footer-contact-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  align-items: flex-start;
+  margin-top: 0.4rem;
+}
+
+.footer-whatsapp-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.55rem 1.25rem;
+  border-radius: 50px;
+  text-decoration: none;
+  background-color: rgba(37, 211, 102, 0.12);
+  color: #25d366;
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.footer-whatsapp-pill:hover {
+  transform: translateY(-2px);
+  background-color: #25d366;
+  color: #0a0a0a;
+  box-shadow: 0 4px 22px rgba(37, 211, 102, 0.35);
+}
+
 .footer-phone-pill {
   display: inline-flex;
   align-items: center;

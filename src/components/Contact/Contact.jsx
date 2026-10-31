@@ -21,9 +21,9 @@ const faqs = [
 ];
 
 const offices = [
-  { num: '01', city: 'NAGPUR', place: 'Nagpur Creative Studio', phone: '+91 93071 89778' },
-  { num: '02', city: 'CANADA', place: 'Toronto Production Hub', phone: '+1 647 000 0000' },
-  { num: '03', city: 'FARIDABAD', place: 'Faridabad Base Studio', phone: '+91 93071 89778' },
+  { num: '01', city: 'NAGPUR', place: 'Nagpur Creative Studio', },
+  { num: '02', city: 'CANADA', place: 'Toronto Production Hub', },
+  { num: '03', city: 'FARIDABAD', place: 'Faridabad Base Studio', },
 ];
 
 const Contact = () => {
@@ -60,7 +60,7 @@ const Contact = () => {
     const formData = new FormData(form);
 
     try {
-      const response = await fetch('https://formspree.io/f/xwlvogwp', {
+      const response = await fetch('https://formspree.io/f/mgaalzqk', {
         method: 'POST',
         body: formData,
         headers: {
