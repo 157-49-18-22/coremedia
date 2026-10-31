@@ -137,12 +137,14 @@ const Portfolio = () => {
               ref={addRef}
               style={{ transitionDelay: `${(index % 3) * 0.1}s` }}
             >
-              <div className="pf-card-image-box">
-                <img src={project.image} alt={project.client} loading="lazy" decoding="async" />
-                <div className="pf-card-hover-overlay">
-                  <span className="pf-view-project-btn">View Case Study <span className="arrow">↗</span></span>
+              <Link to="/case-studies" className="pf-card-link">
+                <div className="pf-card-image-box">
+                  <img src={project.image} alt={project.client} loading="lazy" decoding="async" />
+                  <div className="pf-card-hover-overlay">
+                    <span className="pf-view-project-btn">View Case Study <span className="arrow">↗</span></span>
+                  </div>
                 </div>
-              </div>
+              </Link>
               <div className="pf-card-meta">
                 <div className="pf-card-meta-left">
                   <span className="pf-project-number">0{index + 1}</span>

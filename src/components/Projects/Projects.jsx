@@ -257,7 +257,7 @@ const ProjectCard = ({
             </div>
           </a>
         ) : (
-          <Link to="/portfolio" className="card-overlay-link">
+          <Link to="/case-studies" className="card-overlay-link">
             <div className="card-overlay">
               <span className="casestudy-btn">View Casestudy ↗</span>
             </div>

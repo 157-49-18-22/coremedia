@@ -20,10 +20,11 @@ const Navbar = () => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  const isHome      = location.pathname === '/';
-  const isServices  = location.pathname === '/services';
-  const isPortfolio = location.pathname === '/portfolio';
-  const isContact   = location.pathname === '/contact';
+  const isHome        = location.pathname === '/';
+  const isServices    = location.pathname === '/services';
+  const isPortfolio   = location.pathname === '/portfolio';
+  const isCaseStudy   = location.pathname === '/case-studies' || location.pathname === '/case-study';
+  const isContact     = location.pathname === '/contact';
 
   // Smooth scroll for home-page anchor links
   const handleAnchorClick = (e, hash) => {
@@ -70,6 +71,11 @@ const Navbar = () => {
         <li>
           <Link to="/portfolio" className={isPortfolio ? 'nav-active' : ''}>
             Portfolio
+          </Link>
+        </li>
+        <li>
+          <Link to="/case-studies" className={isCaseStudy ? 'nav-active' : ''}>
+            Case Studies
           </Link>
         </li>
 

@@ -23,6 +23,13 @@
   </url>
 
   <url>
+    <loc>https://clickcoremedia.com/case-studies</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
     <loc>https://clickcoremedia.com/contact</loc>
     <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
